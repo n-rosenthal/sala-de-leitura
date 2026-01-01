@@ -3,27 +3,24 @@
 app = "sala-de-leitura-backend"
 primary_region = "gru"
 
-# Console Django (útil para debug remoto)
-console_command = "python manage.py shell"
-
 [build]
+  dockerfile = "Dockerfile"
 
 [deploy]
-  # roda migrations automaticamente a cada deploy
   release_command = "python manage.py migrate --noinput"
 
 [env]
+  DJANGO_DEBUG = "0"
   PORT = "8000"
-  DJANGO_SETTINGS_MODULE = "core.settings"
 
 [http_service]
   internal_port = 8000
   force_https = true
-  auto_stop_machines = "stop"
   auto_start_machines = true
-  min_machines_running = 0
-  processes = ["app"]
+  auto_stop_machines = true
+  min_machines_running = 1
 
 [[vm]]
-  cpus = 1
   memory = "1gb"
+  cpus = 1
+

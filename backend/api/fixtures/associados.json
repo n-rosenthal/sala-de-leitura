@@ -1,0 +1,112 @@
+[
+    {
+        "model": "api.associado",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "nome": "Gerente da Sala",
+            "aniversario": "1985-03-15",
+            "esta_ativo": true,
+            "gerente": true
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "nome": "Usuário Padrão",
+            "aniversario": "1998-07-22",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "nome": "Gabriel Silva",
+            "aniversario": "2000-01-10",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "nome": "João Pereira",
+            "aniversario": "1997-11-03",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 5,
+        "fields": {
+            "user": 5,
+            "nome": "Maria Oliveira",
+            "aniversario": "1999-05-27",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 6,
+        "fields": {
+            "user": 6,
+            "nome": "Pedro Santos",
+            "aniversario": "1996-09-14",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 7,
+        "fields": {
+            "user": 7,
+            "nome": "José Lima",
+            "aniversario": "1995-02-08",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 8,
+        "fields": {
+            "user": 8,
+            "nome": "Marcos Rocha",
+            "aniversario": "1994-12-19",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 9,
+        "fields": {
+            "user": 9,
+            "nome": "Paulo Henrique",
+            "aniversario": "1993-06-30",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 10,
+        "fields": {
+        "user": 10,
+            "nome": "Ana Beatriz",
+            "aniversario": "2001-04-05",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    }
+] 

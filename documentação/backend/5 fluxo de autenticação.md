@@ -5,7 +5,7 @@
   - **Access Token** (curta duração)
   - **Refresh Token** (longa duração)
 - Controle de acesso baseado em **permissões e papéis (RBAC)**
-- Tokens enviados via **Authorization Header**
+- Tokens enviados via  cookies HTTPS-only
 
 
 Este diagrama mostra a interação entre frontend, backend e serviços internos durante o login. Tanto o fluxo normal quanto possíveis erros (cenários alternativos) são auditados no backend (logs).

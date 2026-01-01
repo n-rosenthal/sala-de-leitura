@@ -1,0 +1,131 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "gerente",
+            "password": "gerente",
+            "email": "gerente@sala_de_leitura.com",
+            "is_staff": true,
+            "is_superuser": true,
+            "is_active": true
+        }
+    },
+    
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "usuario",
+            "password": "usuario",
+            "email": "usuario@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "gabriel",
+            "password": "gabriel",
+            "email": "gabriel@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "joao",
+            "password": "joao",
+            "email": "joao@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "username": "maria",
+            "password": "maria",
+            "email": "maria@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "username": "pedro",
+            "password": "pedro",
+            "email": "pedro@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "username": "jose",
+            "password": "jose",
+            "email": "jose@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "username": "marcos",
+            "password": "marcos",
+            "email": "marcos@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "username": "paulo",
+            "password": "paulo",
+            "email": "paulo@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "username": "ana",
+            "password": "ana",
+            "email": "ana@sala_de_leitura.com",
+            "is_staff": false,
+            "is_superuser": false,
+            "is_active": true
+        }
+    }
+]

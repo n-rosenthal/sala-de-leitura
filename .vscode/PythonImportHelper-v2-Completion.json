@@ -1659,7 +1659,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "SECRET_KEY = os.environ.get(\"DJANGO_SECRET_KEY\", \"dev-secret-key\")\n#   modo de desenvolvimento\nDEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \".fly.dev\",\n]\n#   aplicativos instalados",
+        "peekOfCode": "SECRET_KEY = os.environ.get(\"DJANGO_SECRET_KEY\", \"dev-secret-key\")\n#   modo de desenvolvimento\nDEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\"",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1668,7 +1668,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "DEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \".fly.dev\",\n]\n#   aplicativos instalados\nINSTALLED_APPS = [\n    #   base do django/backend",
+        "peekOfCode": "DEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\"\n]\n#   aplicativos instalados",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1677,7 +1677,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \".fly.dev\",\n]\n#   aplicativos instalados\nINSTALLED_APPS = [\n    #   base do django/backend\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
+        "peekOfCode": "ALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\"\n]\n#   aplicativos instalados\nINSTALLED_APPS = [\n    #   base do django/backend",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1803,16 +1803,16 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "WSGI_APPLICATION = \"core.wsgi.application\"\nDATABASES = {\n    \"default\": dj_database_url.config(\n        default=\"postgres://app_user:app_password@db:5432/app_db\",\n        conn_max_age=600,\n    )\n}\nLANGUAGE_CODE = \"pt-br\"\nTIME_ZONE = \"America/Sao_Paulo\"\nUSE_I18N = True",
+        "peekOfCode": "WSGI_APPLICATION = \"core.wsgi.application\"\nDATABASE_URL = os.environ.get(\"DATABASE_URL\")\nif DATABASE_URL:\n    # Produção (Fly, Railway, etc)\n    DATABASES = {\n        \"default\": dj_database_url.parse(\n            DATABASE_URL,\n            conn_max_age=600,\n            ssl_require=True,\n        )",
         "detail": "backend.core.settings",
         "documentation": {}
     },
     {
-        "label": "DATABASES",
+        "label": "DATABASE_URL",
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "DATABASES = {\n    \"default\": dj_database_url.config(\n        default=\"postgres://app_user:app_password@db:5432/app_db\",\n        conn_max_age=600,\n    )\n}\nLANGUAGE_CODE = \"pt-br\"\nTIME_ZONE = \"America/Sao_Paulo\"\nUSE_I18N = True\nUSE_TZ = True",
+        "peekOfCode": "DATABASE_URL = os.environ.get(\"DATABASE_URL\")\nif DATABASE_URL:\n    # Produção (Fly, Railway, etc)\n    DATABASES = {\n        \"default\": dj_database_url.parse(\n            DATABASE_URL,\n            conn_max_age=600,\n            ssl_require=True,\n        )\n    }",
         "detail": "backend.core.settings",
         "documentation": {}
     },

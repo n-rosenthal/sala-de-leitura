@@ -1,0 +1,108 @@
+[
+    {
+        "model": "api.livro",
+        "pk": "001",
+        "fields": {
+            "titulo": "Dom Casmurro",
+            "autor": "Machado de Assis",
+            "ano": 1899,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "002",
+        "fields": {
+            "titulo": "O Cortiço",
+            "autor": "Aluísio Azevedo",
+            "ano": 1890,
+            "status": "EMPRESTADO"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "003-A",
+        "fields": {
+            "titulo": "Capitães da Areia",
+            "autor": "Jorge Amado",
+            "ano": 1937,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "003-B",
+        "fields": {
+            "titulo": "Capitães da Areia",
+            "autor": "Jorge Amado",
+            "ano": 1937,
+            "status": "DISPONIVEL"
+        }
+    },
+
+
+    {
+        "model": "api.livro",
+        "pk": "L004",
+        "fields": {
+            "titulo": "Vidas Secas",
+            "autor": "Graciliano Ramos",
+            "ano": 1938,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "005-A",
+        "fields": {
+            "titulo": "Memórias Póstumas de Brás Cubas",
+            "autor": "Machado de Assis",
+            "ano": 1881,
+            "status": "DISPONIVEL"
+        }
+    },
+
+    {
+        "model": "api.livro",
+        "pk": "005-B",
+        "fields": {
+            "titulo": "Memórias Póstumas de Brás Cubas",
+            "autor": "Machado de Assis",
+            "ano": 1881,
+            "status": "DISPONIVEL"
+        }
+    },
+
+    {
+        "model": "api.livro",
+        "pk": "005-C",
+        "fields": {
+            "titulo": "Memórias Póstumas de Brás Cubas",
+            "autor": "Machado de Assis",
+            "ano": 1881,
+            "status": "DISPONIVEL"
+        }
+    },
+
+    {
+        "model": "api.livro",
+        "pk": "006",
+        "fields": {
+            "titulo": "Iracema",
+            "autor": "José de Alencar",
+            "ano": 1865,
+            "status": "DOADO"
+        }
+    },
+    
+    {
+        "model": "api.livro",
+        "pk": "L007",
+        "fields": {
+            "titulo": "O Alienista",
+            "autor": "Machado de Assis",
+            "ano": 1882,
+            "status": "PERDIDO"
+        }
+    }
+]
