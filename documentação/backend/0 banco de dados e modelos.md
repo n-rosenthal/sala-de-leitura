@@ -196,7 +196,7 @@ class AuditLog(models.Model):
 ```
 
 ---
-### `\S 3.$ Banco de Dados
+### $\S 3.$ Banco de Dados
 O banco de dados é PostgreSQL, definido no arquivo `docker-compose.yaml`. O banco de dados `db` é utilizado pelo backend. Atualmente, todas as tabelas do banco são:
 
 `pg_dump`:
