@@ -104,5 +104,105 @@
             "ano": 1882,
             "status": "PERDIDO"
         }
+    },
+    {
+        "model": "api.livro",
+        "pk": "L008",
+        "fields": {
+            "titulo": "Grande Sertão: Veredas",
+            "autor": "João Guimarães Rosa",
+            "ano": 1956,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "009",
+        "fields": {
+            "titulo": "O Tempo e o Vento",
+            "autor": "Érico Veríssimo",
+            "ano": 1949,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "010-A",
+        "fields": {
+            "titulo": "A Moreninha",
+            "autor": "Joaquim Manuel de Macedo",
+            "ano": 1844,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "010-B",
+        "fields": {
+            "titulo": "A Moreninha",
+            "autor": "Joaquim Manuel de Macedo",
+            "ano": 1844,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "011",
+        "fields": {
+            "titulo": "Senhora",
+            "autor": "José de Alencar",
+            "ano": 1875,
+            "status": "EMPRESTADO"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "L012",
+        "fields": {
+            "titulo": "Quincas Borba",
+            "autor": "Machado de Assis",
+            "ano": 1891,
+            "status": "EM_REPARO"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "013",
+        "fields": {
+            "titulo": "O Guarani",
+            "autor": "José de Alencar",
+            "ano": 1857,
+            "status": "DISPONIVEL"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "014",
+        "fields": {
+            "titulo": "Macunaíma",
+            "autor": "Mário de Andrade",
+            "ano": 1928,
+            "status": "DOADO"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "015",
+        "fields": {
+            "titulo": "Claro Enigma",
+            "autor": "Carlos Drummond de Andrade",
+            "ano": 1951,
+            "status": "PERDIDO"
+        }
+    },
+    {
+        "model": "api.livro",
+        "pk": "016",
+        "fields": {
+            "titulo": "Minha Vida de Menina",
+            "autor": "Helena Morley",
+            "ano": 1942,
+            "status": "DISPONIVEL"
+        }
     }
 ]

@@ -8,84 +8,110 @@
         "documentation": {}
     },
     {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
-        "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
-        "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
-        "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Emprestimo",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Emprestimo",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "django",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django",
+        "description": "django",
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "call_command",
+        "importPath": "django.core.management",
+        "description": "django.core.management",
+        "isExtraImport": true,
+        "detail": "django.core.management",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "Livro",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Emprestimo",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Livro",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Livro",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Livro",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Emprestimo",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
         "documentation": {}
     },
     {
@@ -217,6 +243,22 @@
         "importPath": "django.db.models.deletion",
         "description": "django.db.models.deletion",
         "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -1142,21 +1184,21 @@
         "documentation": {}
     },
     {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
         "label": "CookieJWTAuthentication",
         "kind": 6,
         "importPath": "backend.api.authentication.cookie_jwt",
         "description": "backend.api.authentication.cookie_jwt",
         "peekOfCode": "class CookieJWTAuthentication(JWTAuthentication):\n    \"\"\"\n    Autenticação JWT usando cookies HTTP-only.\n    \"\"\"\n    def authenticate(self, request):\n        raw_token = request.COOKIES.get(\"access_token\")\n        if raw_token is None:\n            return None\n        validated_token = self.get_validated_token(raw_token)\n        return self.get_user(validated_token), validated_token",
         "detail": "backend.api.authentication.cookie_jwt",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "backend.api.fixtures.load_fixtures",
+        "description": "backend.api.fixtures.load_fixtures",
+        "peekOfCode": "def main():\n    print(\"Carregando fixtures...\")\n    fixtures = [\n        'users.json',\n        'associados.json', \n        'livros.json',\n        'livros2.json',\n        'emprestimos.json'\n    ]\n    for fixture in fixtures:",
+        "detail": "backend.api.fixtures.load_fixtures",
         "documentation": {}
     },
     {
@@ -1328,6 +1370,15 @@
         "description": "backend.api.migrations.0011_alter_associado_user_alter_emprestimo_data_prevista",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0010_alter_emprestimo_data_prevista_auditlog'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='associado',\n            name='user',\n            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='associado', to=settings.AUTH_USER_MODEL),",
         "detail": "backend.api.migrations.0011_alter_associado_user_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0012_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0012_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0011_alter_associado_user_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=datetime.datetime(2026, 1, 8, 19, 10, 21, 205005, tzinfo=datetime.timezone.utc)),\n        ),",
+        "detail": "backend.api.migrations.0012_alter_emprestimo_data_prevista",
         "documentation": {}
     },
     {

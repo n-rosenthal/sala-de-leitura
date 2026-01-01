@@ -108,5 +108,115 @@
             "esta_ativo": true,
             "gerente": false
         }
+    },
+    {
+        "model": "api.associado",
+        "pk": 11,
+        "fields": {
+            "user": 11,
+            "nome": "Carlos Eduardo",
+            "aniversario": "1998-08-12",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 12,
+        "fields": {
+            "user": 12,
+            "nome": "Fernanda Costa",
+            "aniversario": "1999-03-25",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 13,
+        "fields": {
+            "user": 13,
+            "nome": "Rafael Mendes",
+            "aniversario": "1997-12-05",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 14,
+        "fields": {
+            "user": 14,
+            "nome": "Juliana Santos",
+            "aniversario": "2000-06-18",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 15,
+        "fields": {
+            "user": 15,
+            "nome": "André Almeida",
+            "aniversario": "1996-02-28",
+            "esta_ativo": false,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 16,
+        "fields": {
+            "user": 16,
+            "nome": "Patrícia Gomes",
+            "aniversario": "1995-09-14",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 17,
+        "fields": {
+            "user": 17,
+            "nome": "Roberto Nunes",
+            "aniversario": "1994-11-30",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 18,
+        "fields": {
+            "user": 18,
+            "nome": "Camila Ribeiro",
+            "aniversario": "2001-04-22",
+            "esta_ativo": true,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 19,
+        "fields": {
+            "user": 19,
+            "nome": "Diego Martins",
+            "aniversario": "1993-07-08",
+            "esta_ativo": false,
+            "gerente": false
+        }
+    },
+    {
+        "model": "api.associado",
+        "pk": 20,
+        "fields": {
+            "user": 20,
+            "nome": "Luana Ferreira",
+            "aniversario": "2002-01-15",
+            "esta_ativo": true,
+            "gerente": false
+        }
     }
 ] 

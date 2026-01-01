@@ -37,5 +37,135 @@
             "quem_emprestou": 1,
             "quem_devolveu": 1
         }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 4,
+        "fields": {
+            "livro": "L004",
+            "associado": 6,
+            "data_emprestimo": "2025-12-15",
+            "data_prevista": "2025-12-22",
+            "data_devolucao": "2025-12-20",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 5,
+        "fields": {
+            "livro": "001",
+            "associado": 7,
+            "data_emprestimo": "2025-11-20",
+            "data_prevista": "2025-11-27",
+            "data_devolucao": null,
+            "quem_emprestou": 1,
+            "quem_devolveu": null
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 6,
+        "fields": {
+            "livro": "003-A",
+            "associado": 8,
+            "data_emprestimo": "2025-10-05",
+            "data_prevista": "2025-10-12",
+            "data_devolucao": "2025-10-10",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 7,
+        "fields": {
+            "livro": "005-A",
+            "associado": 9,
+            "data_emprestimo": "2025-09-15",
+            "data_prevista": "2025-09-22",
+            "data_devolucao": "2025-09-25",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 8,
+        "fields": {
+            "livro": "011",
+            "associado": 10,
+            "data_emprestimo": "2025-12-10",
+            "data_prevista": "2025-12-17",
+            "data_devolucao": null,
+            "quem_emprestou": 1,
+            "quem_devolveu": null
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 9,
+        "fields": {
+            "livro": "003-B",
+            "associado": 11,
+            "data_emprestimo": "2025-11-25",
+            "data_prevista": "2025-12-02",
+            "data_devolucao": "2025-11-30",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 10,
+        "fields": {
+            "livro": "005-B",
+            "associado": 12,
+            "data_emprestimo": "2025-10-30",
+            "data_prevista": "2025-11-06",
+            "data_devolucao": "2025-11-03",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 11,
+        "fields": {
+            "livro": "009",
+            "associado": 13,
+            "data_emprestimo": "2025-09-10",
+            "data_prevista": "2025-09-17",
+            "data_devolucao": "2025-09-20",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 12,
+        "fields": {
+            "livro": "013",
+            "associado": 14,
+            "data_emprestimo": "2025-08-05",
+            "data_prevista": "2025-08-12",
+            "data_devolucao": "2025-08-10",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
+    },
+    {
+        "model": "api.emprestimo",
+        "pk": 13,
+        "fields": {
+            "livro": "010-A",
+            "associado": 15,
+            "data_emprestimo": "2025-07-20",
+            "data_prevista": "2025-07-27",
+            "data_devolucao": "2025-07-25",
+            "quem_emprestou": 1,
+            "quem_devolveu": 1
+        }
     }
 ]
