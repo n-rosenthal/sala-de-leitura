@@ -139,7 +139,7 @@ Define-se um `Emprestimo` por
 ```
 
 ---
-## `\S 2.$ Entidade `AuditLog`
+## $\S 2.$ Entidade `AuditLog`
 A entidade `AuditLog` representa um *log* de ações do sistema. Não se trata, portanto, do domínio do problema, mas da implementação da solução. Para toda $*$ ação de um usuário no sistema, um objeto `AuditLog` é registrado no banco de dados. Os *logs* podem visualizados no frontend.
 Define-se um `AuditLog` por
 
