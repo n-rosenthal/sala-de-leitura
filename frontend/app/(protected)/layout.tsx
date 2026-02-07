@@ -20,12 +20,16 @@ export default function ProtectedLayout({
       router.replace("/login");
       return;
     }
+    
+    {/*
 
     if (user.is_staff) {
       router.replace("/dashboard");
     } else {
       router.replace("/me");
     }
+    
+    */}
   }, [loading, user, router]);
 
   return (

@@ -47,6 +47,10 @@ export default function EmprestimosPage() {
               className="rounded-xl border p-4 space-y-2"
             >
               <div>
+              	<p className="font-bold">
+                  [ {e.livro} ]
+                </p>
+              
                 <p className="font-medium">
                   {e.livro_titulo}
                 </p>
