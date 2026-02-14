@@ -1,14 +1,15 @@
 up:
-	docker compose up --build
+	sudo docker compose up --build
 
 down:
-	docker compose down
+	sudo docker compose down
 
 backend-shell:
-	docker compose exec backend bash
+	sudo docker compose exec backend bash
 
 migrate:
-	docker compose exec backend python manage.py migrate
+	sudo docker compose exec backend python manage.py makemigrations
+	&& sudo docker compose exec backend python manage.py migrate
 
 createsuperuser:
-	docker compose exec backend python manage.py createsuperuser
+	sudo docker compose exec backend python manage.py createsuperuser
