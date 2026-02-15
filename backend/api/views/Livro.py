@@ -15,9 +15,6 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 
 
-#   Permissão de gerente
-from ..permissions import IsStaff
-
 #   Modelo e serializer para `Livro`
 from ..models import Livro
 from ..serializers import LivroSerializer

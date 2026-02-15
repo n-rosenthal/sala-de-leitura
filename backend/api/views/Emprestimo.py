@@ -25,7 +25,8 @@ from rest_framework.response import Response
 from rest_framework import viewsets, filters, status
 from rest_framework.exceptions import ValidationError
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticated
+import rest_framework.permissions
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.core.exceptions import PermissionDenied
 
 #   tipos para `Emprestimo`, `Livro` e `Associado`
@@ -33,9 +34,6 @@ from ..models import Emprestimo, Livro, Associado
 
 #   serializador para `Emprestimo`
 from ..serializers import EmprestimoSerializer
-
-#   Permissão de gerente
-from ..permissions import IsStaff
 
 #   serviço de auditoria (logging)
 from ..services.audit_service import AuditService
@@ -339,7 +337,7 @@ class EmprestimoViewSet(viewsets.ModelViewSet):
     detail=True,
     methods=["post"],
     url_path="renovar",
-    permission_classes=[IsAuthenticated, IsStaff],
+    permission_classes=[AllowAny],
     )
     def renovar(self, request, pk=None):
         """

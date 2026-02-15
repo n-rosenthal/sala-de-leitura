@@ -470,6 +470,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -889,6 +905,14 @@
     },
     {
         "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -1453,6 +1477,15 @@
         "description": "backend.api.migrations.0013_alter_associado_options_remove_associado_esta_ativo_and_more",
         "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0012_alter_emprestimo_data_prevista'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='associado',\n            options={'ordering': ['user__first_name'], 'verbose_name': 'Associado', 'verbose_name_plural': 'Associados'},\n        ),",
         "detail": "backend.api.migrations.0013_alter_associado_options_remove_associado_esta_ativo_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0014_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0014_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0013_alter_associado_options_remove_associado_esta_ativo_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=datetime.datetime(2026, 2, 22, 20, 44, 2, 23645, tzinfo=datetime.timezone.utc)),\n        ),",
+        "detail": "backend.api.migrations.0014_alter_emprestimo_data_prevista",
         "documentation": {}
     },
     {
