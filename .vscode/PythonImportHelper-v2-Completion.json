@@ -615,14 +615,6 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
         "label": "ValidationError",
         "importPath": "django.core.exceptions",
         "description": "django.core.exceptions",
@@ -668,95 +660,6 @@
         "description": "django.db.models",
         "isExtraImport": true,
         "detail": "django.db.models",
-        "documentation": {}
-    },
-    {
-        "label": "rest_framework.permissions",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "BasePermission",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "AllowAny",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "AllowAny",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
         "documentation": {}
     },
     {
@@ -933,6 +836,79 @@
         "description": "rest_framework.decorators",
         "isExtraImport": true,
         "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "rest_framework.permissions",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
@@ -1516,24 +1492,6 @@
         "documentation": {}
     },
     {
-        "label": "IsStaff",
-        "kind": 6,
-        "importPath": "backend.api.permissions.roles",
-        "description": "backend.api.permissions.roles",
-        "peekOfCode": "class IsStaff(BasePermission):\n    \"\"\"\n    Permite acesso apenas a usuários staff.\n    \"\"\"\n    def has_permission(self, request, view):\n        return bool(\n            request.user\n            and request.user.is_authenticated\n            and request.user.is_staff\n        )",
-        "detail": "backend.api.permissions.roles",
-        "documentation": {}
-    },
-    {
-        "label": "IsAdmin",
-        "kind": 6,
-        "importPath": "backend.api.permissions.roles",
-        "description": "backend.api.permissions.roles",
-        "peekOfCode": "class IsAdmin(BasePermission):\n    \"\"\"\n    Permite acesso apenas a superusers.\n    \"\"\"\n    def has_permission(self, request, view):\n        return bool(\n            request.user\n            and request.user.is_authenticated\n            and request.user.is_superuser\n        )",
-        "detail": "backend.api.permissions.roles",
-        "documentation": {}
-    },
-    {
         "label": "AssociadoSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers.Associado",
@@ -1576,24 +1534,6 @@
         "description": "backend.api.serializers.Livro",
         "peekOfCode": "class LivroSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Serializer para entidade `Livro`.\n    Exibe todos os campos de um `Livro`.\n    \"\"\"\n    class Meta:\n        model = Livro\n        fields = [\n            \"id\",\n            \"titulo\",",
         "detail": "backend.api.serializers.Livro",
-        "documentation": {}
-    },
-    {
-        "label": "AssociadoMiniSerializer",
-        "kind": 6,
-        "importPath": "backend.api.serializers.User",
-        "description": "backend.api.serializers.User",
-        "peekOfCode": "class AssociadoMiniSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Associado\n        fields = [\"id\", \"nome\", \"gerente\"]\nclass MeSerializer(serializers.ModelSerializer):\n    associado = AssociadoMiniSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\n            \"id\",",
-        "detail": "backend.api.serializers.User",
-        "documentation": {}
-    },
-    {
-        "label": "MeSerializer",
-        "kind": 6,
-        "importPath": "backend.api.serializers.User",
-        "description": "backend.api.serializers.User",
-        "peekOfCode": "class MeSerializer(serializers.ModelSerializer):\n    associado = AssociadoMiniSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\n            \"id\",\n            \"username\",\n            \"email\",\n            \"is_staff\",\n            \"is_superuser\",",
-        "detail": "backend.api.serializers.User",
         "documentation": {}
     },
     {
