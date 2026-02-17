@@ -149,7 +149,7 @@ class AssociadoViewSet(viewsets.ModelViewSet):
         
         except ValidationError as e:
             return Response(
-                {'detail': str(e)},
+                {'detail': str(e) + ' - ' + str(serializer.errors)},
                 status=status.HTTP_400_BAD_REQUEST
             )
     
