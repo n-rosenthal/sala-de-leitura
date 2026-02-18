@@ -115,6 +115,14 @@
         "documentation": {}
     },
     {
+        "label": "Associado",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
         "label": "Path",
         "importPath": "pathlib",
         "description": "pathlib",
@@ -212,14 +220,6 @@
         "documentation": {}
     },
     {
-        "label": "RefreshToken",
-        "importPath": "rest_framework_simplejwt.tokens",
-        "description": "rest_framework_simplejwt.tokens",
-        "isExtraImport": true,
-        "detail": "rest_framework_simplejwt.tokens",
-        "documentation": {}
-    },
-    {
         "label": "JsonResponse",
         "importPath": "django.http",
         "description": "django.http",
@@ -243,6 +243,70 @@
         "importPath": "django.db.models.deletion",
         "description": "django.db.models.deletion",
         "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -478,6 +542,14 @@
         "documentation": {}
     },
     {
+        "label": "transaction",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "kind": 6,
         "isExtraImport": true,
@@ -503,14 +575,6 @@
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
         "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
@@ -524,6 +588,14 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
         "documentation": {}
     },
     {
@@ -567,6 +639,14 @@
         "documentation": {}
     },
     {
+        "label": "ValidationError",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
         "label": "PermissionDenied",
         "importPath": "django.core.exceptions",
         "description": "django.core.exceptions",
@@ -588,110 +668,6 @@
         "description": "django.db.models",
         "isExtraImport": true,
         "detail": "django.db.models",
-        "documentation": {}
-    },
-    {
-        "label": "Count",
-        "importPath": "django.db.models",
-        "description": "django.db.models",
-        "isExtraImport": true,
-        "detail": "django.db.models",
-        "documentation": {}
-    },
-    {
-        "label": "BasePermission",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "AllowAny",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "AllowAny",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "serializers",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
         "documentation": {}
     },
     {
@@ -720,6 +696,22 @@
     },
     {
         "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -791,47 +783,7 @@
         "documentation": {}
     },
     {
-        "label": "DjangoFilterBackend",
-        "importPath": "django_filters.rest_framework",
-        "description": "django_filters.rest_framework",
-        "isExtraImport": true,
-        "detail": "django_filters.rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "DjangoFilterBackend",
-        "importPath": "django_filters.rest_framework",
-        "description": "django_filters.rest_framework",
-        "isExtraImport": true,
-        "detail": "django_filters.rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "DjangoFilterBackend",
-        "importPath": "django_filters.rest_framework",
-        "description": "django_filters.rest_framework",
-        "isExtraImport": true,
-        "detail": "django_filters.rest_framework",
-        "documentation": {}
-    },
-    {
         "label": "action",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "api_view",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "permission_classes",
         "importPath": "rest_framework.decorators",
         "description": "rest_framework.decorators",
         "isExtraImport": true,
@@ -855,59 +807,52 @@
         "documentation": {}
     },
     {
-        "label": "api_view",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
+        "label": "rest_framework.permissions",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "rest_framework.decorators",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
-        "label": "permission_classes",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.decorators",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.response",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.response",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.response",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
@@ -927,59 +872,27 @@
         "documentation": {}
     },
     {
-        "label": "ValidationError",
-        "importPath": "rest_framework.exceptions",
-        "description": "rest_framework.exceptions",
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
         "isExtraImport": true,
-        "detail": "rest_framework.exceptions",
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
-        "label": "AuthenticationFailed",
-        "importPath": "rest_framework.exceptions",
-        "description": "rest_framework.exceptions",
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
         "isExtraImport": true,
-        "detail": "rest_framework.exceptions",
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
-        "label": "ValidationError",
-        "importPath": "rest_framework.exceptions",
-        "description": "rest_framework.exceptions",
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
         "isExtraImport": true,
-        "detail": "rest_framework.exceptions",
-        "documentation": {}
-    },
-    {
-        "label": "csrf_exempt",
-        "importPath": "django.views.decorators.csrf",
-        "description": "django.views.decorators.csrf",
-        "isExtraImport": true,
-        "detail": "django.views.decorators.csrf",
-        "documentation": {}
-    },
-    {
-        "label": "method_decorator",
-        "importPath": "django.utils.decorators",
-        "description": "django.utils.decorators",
-        "isExtraImport": true,
-        "detail": "django.utils.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "authenticate",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "APIView",
-        "importPath": "rest_framework.views",
-        "description": "rest_framework.views",
-        "isExtraImport": true,
-        "detail": "rest_framework.views",
+        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -999,6 +912,30 @@
         "documentation": {}
     },
     {
+        "label": "ValidationError",
+        "importPath": "rest_framework.exceptions",
+        "description": "rest_framework.exceptions",
+        "isExtraImport": true,
+        "detail": "rest_framework.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoFilterBackend",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoFilterBackend",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -1012,6 +949,14 @@
         "description": "django.contrib",
         "isExtraImport": true,
         "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "importPath": "django.contrib.auth.admin",
+        "description": "django.contrib.auth.admin",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.admin",
         "documentation": {}
     },
     {
@@ -1100,54 +1045,6 @@
         "description": "api.views.Associado",
         "isExtraImport": true,
         "detail": "api.views.Associado",
-        "documentation": {}
-    },
-    {
-        "label": "login_view",
-        "importPath": "api.views.Auth",
-        "description": "api.views.Auth",
-        "isExtraImport": true,
-        "detail": "api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "logout_view",
-        "importPath": "api.views.Auth",
-        "description": "api.views.Auth",
-        "isExtraImport": true,
-        "detail": "api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "refresh_view",
-        "importPath": "api.views.Auth",
-        "description": "api.views.Auth",
-        "isExtraImport": true,
-        "detail": "api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "me_view",
-        "importPath": "api.views.Me",
-        "description": "api.views.Me",
-        "isExtraImport": true,
-        "detail": "api.views.Me",
-        "documentation": {}
-    },
-    {
-        "label": "emprestimos_me_view",
-        "importPath": "api.views.Me",
-        "description": "api.views.Me",
-        "isExtraImport": true,
-        "detail": "api.views.Me",
-        "documentation": {}
-    },
-    {
-        "label": "DashboardView",
-        "importPath": "api.views.Dashboard",
-        "description": "api.views.Dashboard",
-        "isExtraImport": true,
-        "detail": "api.views.Dashboard",
         "documentation": {}
     },
     {
@@ -1382,11 +1279,47 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0013_alter_associado_options_remove_associado_esta_ativo_and_more",
+        "description": "backend.api.migrations.0013_alter_associado_options_remove_associado_esta_ativo_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0012_alter_emprestimo_data_prevista'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='associado',\n            options={'ordering': ['user__first_name'], 'verbose_name': 'Associado', 'verbose_name_plural': 'Associados'},\n        ),",
+        "detail": "backend.api.migrations.0013_alter_associado_options_remove_associado_esta_ativo_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0014_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0014_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0013_alter_associado_options_remove_associado_esta_ativo_and_more'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=datetime.datetime(2026, 2, 22, 20, 44, 2, 23645, tzinfo=datetime.timezone.utc)),\n        ),",
+        "detail": "backend.api.migrations.0014_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0015_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0015_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0014_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=datetime.datetime(2026, 2, 24, 11, 49, 19, 366582, tzinfo=datetime.timezone.utc)),\n        ),",
+        "detail": "backend.api.migrations.0015_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0016_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0016_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0015_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=datetime.datetime(2026, 2, 25, 22, 42, 23, 726741, tzinfo=datetime.timezone.utc)),\n        ),",
+        "detail": "backend.api.migrations.0016_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
         "label": "Associado",
         "kind": 6,
         "importPath": "backend.api.models.Associado",
         "description": "backend.api.models.Associado",
-        "peekOfCode": "class Associado(models.Model):\n    \"\"\"\n        Modelo para um associado (usuário) da sala de leitura.\n        Um associado é caracterizado por\n        -   seu nome;\n        -   seu aniversário;\n        -   se ele está ativo;\n        -   se ele é gerente.\n    \"\"\"\n    user = models.OneToOneField(",
+        "peekOfCode": "class Associado(models.Model):\n    \"\"\"\n        Perfil estendido para usuários da sala de leitura.\n        Complementa o modelo User padrão do Django.\n    \"\"\"\n    user = models.OneToOneField(\n        settings.AUTH_USER_MODEL,\n        on_delete=models.CASCADE,\n        related_name=\"associado\",\n        verbose_name=\"Usuário\"",
         "detail": "backend.api.models.Associado",
         "documentation": {}
     },
@@ -1418,39 +1351,21 @@
         "documentation": {}
     },
     {
-        "label": "IsStaff",
-        "kind": 6,
-        "importPath": "backend.api.permissions.roles",
-        "description": "backend.api.permissions.roles",
-        "peekOfCode": "class IsStaff(BasePermission):\n    \"\"\"\n    Permite acesso apenas a usuários staff.\n    \"\"\"\n    def has_permission(self, request, view):\n        return bool(\n            request.user\n            and request.user.is_authenticated\n            and request.user.is_staff\n        )",
-        "detail": "backend.api.permissions.roles",
-        "documentation": {}
-    },
-    {
-        "label": "IsAdmin",
-        "kind": 6,
-        "importPath": "backend.api.permissions.roles",
-        "description": "backend.api.permissions.roles",
-        "peekOfCode": "class IsAdmin(BasePermission):\n    \"\"\"\n    Permite acesso apenas a superusers.\n    \"\"\"\n    def has_permission(self, request, view):\n        return bool(\n            request.user\n            and request.user.is_authenticated\n            and request.user.is_superuser\n        )",
-        "detail": "backend.api.permissions.roles",
-        "documentation": {}
-    },
-    {
         "label": "AssociadoSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers.Associado",
         "description": "backend.api.serializers.Associado",
-        "peekOfCode": "class AssociadoSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField(\n        source=\"user.id\",\n        read_only=True\n    )\n    username = serializers.CharField(\n        source=\"user.username\",\n        read_only=True\n    )\n    email = serializers.EmailField(",
+        "peekOfCode": "class AssociadoSerializer(serializers.ModelSerializer):\n    \"\"\"Serializer que combina dados do User e do Associado\"\"\"\n    # Campos do User (read/write)\n    username = serializers.CharField(source='user.username')\n    email = serializers.EmailField(source='user.email')\n    first_name = serializers.CharField(source='user.first_name')\n    last_name = serializers.CharField(source='user.last_name')\n    is_active = serializers.BooleanField(source='user.is_active', read_only=True)\n    date_joined = serializers.DateTimeField(source='user.date_joined', read_only=True)\n    # Campos do Associado (já definidos no Meta)",
         "detail": "backend.api.serializers.Associado",
         "documentation": {}
     },
     {
         "label": "AssociadoCreateSerializer",
         "kind": 6,
-        "importPath": "backend.api.serializers.AssociadoCreate",
-        "description": "backend.api.serializers.AssociadoCreate",
-        "peekOfCode": "class AssociadoCreateSerializer(serializers.ModelSerializer):\n    # Dados do usuário (opcional)\n    username = serializers.CharField(required=False)\n    password = serializers.CharField(required=False, write_only=True)\n    email = serializers.EmailField(required=False)\n    class Meta:\n        model = Associado\n        fields = [\n            \"id\",\n            \"nome\",",
-        "detail": "backend.api.serializers.AssociadoCreate",
+        "importPath": "backend.api.serializers.Associado",
+        "description": "backend.api.serializers.Associado",
+        "peekOfCode": "class AssociadoCreateSerializer(AssociadoSerializer):\n    \"\"\"Serializer específico para criação com validação de senha\"\"\"\n    password = serializers.CharField(write_only=True, required=True)\n    password_confirmation = serializers.CharField(write_only=True, required=True)\n    class Meta(AssociadoSerializer.Meta):\n        fields = AssociadoSerializer.Meta.fields + ['password', 'password_confirmation']\n    def validate(self, data):\n        \"\"\"Validação personalizada para criação\"\"\"\n        if data.get('password') != data.get('password_confirmation'):\n            raise serializers.ValidationError({\"password\": \"As senhas não coincidem.\"})",
+        "detail": "backend.api.serializers.Associado",
         "documentation": {}
     },
     {
@@ -1469,24 +1384,6 @@
         "description": "backend.api.serializers.Livro",
         "peekOfCode": "class LivroSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Serializer para entidade `Livro`.\n    Exibe todos os campos de um `Livro`.\n    \"\"\"\n    class Meta:\n        model = Livro\n        fields = [\n            \"id\",\n            \"titulo\",",
         "detail": "backend.api.serializers.Livro",
-        "documentation": {}
-    },
-    {
-        "label": "AssociadoMiniSerializer",
-        "kind": 6,
-        "importPath": "backend.api.serializers.User",
-        "description": "backend.api.serializers.User",
-        "peekOfCode": "class AssociadoMiniSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Associado\n        fields = [\"id\", \"nome\", \"gerente\"]\nclass MeSerializer(serializers.ModelSerializer):\n    associado = AssociadoMiniSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\n            \"id\",",
-        "detail": "backend.api.serializers.User",
-        "documentation": {}
-    },
-    {
-        "label": "MeSerializer",
-        "kind": 6,
-        "importPath": "backend.api.serializers.User",
-        "description": "backend.api.serializers.User",
-        "peekOfCode": "class MeSerializer(serializers.ModelSerializer):\n    associado = AssociadoMiniSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\n            \"id\",\n            \"username\",\n            \"email\",\n            \"is_staff\",\n            \"is_superuser\",",
-        "detail": "backend.api.serializers.User",
         "documentation": {}
     },
     {
@@ -1512,62 +1409,8 @@
         "kind": 6,
         "importPath": "backend.api.views.Associado",
         "description": "backend.api.views.Associado",
-        "peekOfCode": "class AssociadoViewSet(viewsets.ModelViewSet):\n    \"\"\"\n        ViewSet para entidade `Associado`.\n    \"\"\"\n    #   ordenar todos os associados por nome\n    queryset = Associado.objects.all().order_by(\"nome\")\n    serializer_class = AssociadoSerializer\n    #   somente gerentes ou administradores podem alterar associados\n    permission_classes = [IsAuthenticated, IsStaff]\n    def get_serializer_class(self):",
+        "peekOfCode": "class AssociadoViewSet(viewsets.ModelViewSet):\n    \"\"\"\n    ViewSet para gerenciar Associados.\n    Fornece endpoints para:\n    - Listar todos os associados (com filtros)\n    - Criar novo associado (registro)\n    - Obter detalhes de um associado específico\n    - Atualizar/Deletar associado (com permissões)\n    - Endpoints personalizados: 'me', 'activate', 'deactivate'\n    \"\"\"",
         "detail": "backend.api.views.Associado",
-        "documentation": {}
-    },
-    {
-        "label": "serialize_user",
-        "kind": 2,
-        "importPath": "backend.api.views.Auth",
-        "description": "backend.api.views.Auth",
-        "peekOfCode": "def serialize_user(user):\n    \"\"\"\n    Serializa o usuário no formato esperado pelo frontend.\n    \"\"\"\n    # Roles\n    roles = [\"user\"]\n    if user.is_staff:\n        roles.append(\"staff\")\n    if user.is_superuser:\n        roles.append(\"admin\")",
-        "detail": "backend.api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "login_view",
-        "kind": 2,
-        "importPath": "backend.api.views.Auth",
-        "description": "backend.api.views.Auth",
-        "peekOfCode": "def login_view(request):\n    \"\"\"\n    Autentica o usuário e retorna tokens via cookies HTTP-only\n    junto com os dados do usuário autenticado.\n    \"\"\"\n    username = request.data.get(\"username\")\n    password = request.data.get(\"password\")\n    user = authenticate(username=username, password=password)\n    if not user:\n        #   (logging)",
-        "detail": "backend.api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "logout_view",
-        "kind": 2,
-        "importPath": "backend.api.views.Auth",
-        "description": "backend.api.views.Auth",
-        "peekOfCode": "def logout_view(request):\n    #   Auditoria de logout\n    AuditService.log(\n        action=\"LOGOUT\",\n        success=True,\n        message=\"Logout bem-sucedido\",\n        request=request\n    )\n    response = Response({\"ok\": True})\n    response.delete_cookie(\"access_token\", path=\"/\")",
-        "detail": "backend.api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "refresh_view",
-        "kind": 2,
-        "importPath": "backend.api.views.Auth",
-        "description": "backend.api.views.Auth",
-        "peekOfCode": "def refresh_view(request):\n    \"\"\"\n    Renova o access_token usando refresh_token via cookie HTTP-only.\n    \"\"\"\n    refresh_token = request.COOKIES.get(\"refresh_token\")\n    if not refresh_token:\n        raise AuthenticationFailed(\"Refresh token ausente\")\n    try:\n        refresh = RefreshToken(refresh_token)\n        access = refresh.access_token",
-        "detail": "backend.api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "SECURE_COOKIE",
-        "kind": 5,
-        "importPath": "backend.api.views.Auth",
-        "description": "backend.api.views.Auth",
-        "peekOfCode": "SECURE_COOKIE = not settings.DEBUG\n#   logging, serviço de auditoria (logging)\nfrom ..services.audit_service import AuditService\ndef serialize_user(user):\n    \"\"\"\n    Serializa o usuário no formato esperado pelo frontend.\n    \"\"\"\n    # Roles\n    roles = [\"user\"]\n    if user.is_staff:",
-        "detail": "backend.api.views.Auth",
-        "documentation": {}
-    },
-    {
-        "label": "DashboardView",
-        "kind": 6,
-        "importPath": "backend.api.views.Dashboard",
-        "description": "backend.api.views.Dashboard",
-        "peekOfCode": "class DashboardView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        hoje = date.today()\n        data = {\n            \"livros\": {\n                \"total\": Livro.objects.count(),\n                \"disponiveis\": Livro.objects.filter(\n                    status=Livro.Status.DISPONIVEL\n                ).count(),",
-        "detail": "backend.api.views.Dashboard",
         "documentation": {}
     },
     {
@@ -1575,7 +1418,7 @@
         "kind": 6,
         "importPath": "backend.api.views.Diagnostico",
         "description": "backend.api.views.Diagnostico",
-        "peekOfCode": "class DiagnosticoView(APIView):\n    permission_classes = [AllowAny]\n    def get(self, request):\n        \"\"\"Retorna diagnóstico de inconsistências no sistema\"\"\"\n        livros = Livro.objects.all()\n        inconsistencias = []\n        for livro in livros:\n            emprestimos_ativos = Emprestimo.objects.filter(\n                livro=livro,\n                data_devolucao__isnull=True",
+        "peekOfCode": "class DiagnosticoView(APIView):\n    permission_classes = [AllowAny()]\n    def get(self, request):\n        \"\"\"Retorna diagnóstico de inconsistências no sistema\"\"\"\n        livros      = Livro.objects.all()\n        associados  = Associado.objects.all()\n        emprestimos = Emprestimo.objects.all()\n        return Response({\n            'livros': {\n                'count' : len(livros)",
         "detail": "backend.api.views.Diagnostico",
         "documentation": {}
     },
@@ -1598,29 +1441,20 @@
         "documentation": {}
     },
     {
-        "label": "me_view",
-        "kind": 2,
-        "importPath": "backend.api.views.Me",
-        "description": "backend.api.views.Me",
-        "peekOfCode": "def me_view(request):\n    user = request.user\n    #   roles { user, staff, admin }\n    roles = [\"user\"]\n    if user.is_staff:\n        roles.append(\"staff\")\n    if user.is_superuser:\n        roles.append(\"admin\")\n    # =========================\n    # Permissions",
-        "detail": "backend.api.views.Me",
-        "documentation": {}
-    },
-    {
-        "label": "emprestimos_me_view",
-        "kind": 2,
-        "importPath": "backend.api.views.Me",
-        "description": "backend.api.views.Me",
-        "peekOfCode": "def emprestimos_me_view(request):\n    \"\"\"\n        View para retornar todos os empréstimos de um associado (usuário logado)\n    \"\"\"\n    user = request.user\n    try:\n        associado = user.associado\n    except Associado.DoesNotExist:\n        return Response([], status=200)\n    qs = Emprestimo.objects.filter(associado=associado)",
-        "detail": "backend.api.views.Me",
-        "documentation": {}
-    },
-    {
-        "label": "LivroAdmin",
+        "label": "AssociadoInline",
         "kind": 6,
         "importPath": "backend.api.admin",
         "description": "backend.api.admin",
-        "peekOfCode": "class LivroAdmin(admin.ModelAdmin):\n    list_display = (\"id\", \"titulo\", \"autor\", \"status\")\n    list_filter = (\"status\",)\n    search_fields = (\"titulo\", \"autor\")\n@admin.register(Associado)\nclass AssociadoAdmin(admin.ModelAdmin):\n    list_display = (\"id\", \"nome\", \"esta_ativo\", \"gerente\")\n    list_filter = (\"esta_ativo\", \"gerente\")\n@admin.register(Emprestimo)\nclass EmprestimoAdmin(admin.ModelAdmin):",
+        "peekOfCode": "class AssociadoInline(admin.StackedInline):\n    model = Associado\n    can_delete = False\n    verbose_name_plural = 'Perfil Associado'\n    fields = ['aniversario', 'telefone']\nclass UserWithAssociadoAdmin(UserAdmin):\n    inlines = [AssociadoInline]\n# Substitui o UserAdmin padrão\nadmin.site.unregister(User)\nadmin.site.register(User, UserWithAssociadoAdmin)",
+        "detail": "backend.api.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UserWithAssociadoAdmin",
+        "kind": 6,
+        "importPath": "backend.api.admin",
+        "description": "backend.api.admin",
+        "peekOfCode": "class UserWithAssociadoAdmin(UserAdmin):\n    inlines = [AssociadoInline]\n# Substitui o UserAdmin padrão\nadmin.site.unregister(User)\nadmin.site.register(User, UserWithAssociadoAdmin)\n@admin.register(Associado)\nclass AssociadoAdmin(admin.ModelAdmin):\n    \"\"\"Admin para o modelo Associado (visualização separada).\"\"\"\n    list_display = ('id', 'get_username', 'get_full_name', 'get_email', 'aniversario', 'get_is_active')\n    list_filter = ('user__is_active', 'aniversario')",
         "detail": "backend.api.admin",
         "documentation": {}
     },
@@ -1629,7 +1463,16 @@
         "kind": 6,
         "importPath": "backend.api.admin",
         "description": "backend.api.admin",
-        "peekOfCode": "class AssociadoAdmin(admin.ModelAdmin):\n    list_display = (\"id\", \"nome\", \"esta_ativo\", \"gerente\")\n    list_filter = (\"esta_ativo\", \"gerente\")\n@admin.register(Emprestimo)\nclass EmprestimoAdmin(admin.ModelAdmin):\n    list_display = (\n        \"id\",\n        \"livro\",\n        \"associado\",\n        \"data_emprestimo\",",
+        "peekOfCode": "class AssociadoAdmin(admin.ModelAdmin):\n    \"\"\"Admin para o modelo Associado (visualização separada).\"\"\"\n    list_display = ('id', 'get_username', 'get_full_name', 'get_email', 'aniversario', 'get_is_active')\n    list_filter = ('user__is_active', 'aniversario')\n    search_fields = ('user__username', 'user__email', 'user__first_name', 'user__last_name', 'telefone')\n    list_select_related = ('user',)\n    ordering = ('user__username',)\n    fieldsets = (\n        ('Dados do Usuário', {\n            'fields': ('user',)",
+        "detail": "backend.api.admin",
+        "documentation": {}
+    },
+    {
+        "label": "LivroAdmin",
+        "kind": 6,
+        "importPath": "backend.api.admin",
+        "description": "backend.api.admin",
+        "peekOfCode": "class LivroAdmin(admin.ModelAdmin):\n    list_display = (\"id\", \"titulo\", \"autor\", \"status\")\n    list_filter = (\"status\",)\n    search_fields = (\"titulo\", \"autor\")\n@admin.register(Emprestimo)\nclass EmprestimoAdmin(admin.ModelAdmin):\n    list_display = (\n        \"id\",\n        \"livro\",\n        \"associado\",",
         "detail": "backend.api.admin",
         "documentation": {}
     },
@@ -1665,7 +1508,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(\"livros\", LivroViewSet, basename=\"livro\")\nrouter.register(\"emprestimos\", EmprestimoViewSet, basename=\"emprestimo\")\nrouter.register(\"associados\", AssociadoViewSet, basename=\"associado\")\nurlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    #   meus empréstimos\n    path(\"emprestimos/me/\", emprestimos_me_view, name=\"emprestimos-me\"),\n    # AUTH",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(\"livros\", LivroViewSet, basename=\"livro\")\nrouter.register(\"emprestimos\", EmprestimoViewSet, basename=\"emprestimo\")\nrouter.register(\"associados\", AssociadoViewSet, basename=\"associado\")\nurlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    path(\"diagnostico/\", DiagnosticoView.as_view(), name=\"diagnostico\"),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1674,7 +1517,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    #   meus empréstimos\n    path(\"emprestimos/me/\", emprestimos_me_view, name=\"emprestimos-me\"),\n    # AUTH\n    path(\"auth/login/\",     login_view,     name=\"api-login\"),\n    path(\"auth/logout/\",    logout_view,    name=\"api-logout\"),\n    path(\"auth/refresh/\",   refresh_view,   name=\"api-refresh\"),\n    path(\"auth/me/\",        me_view,        name=\"api-me\"),",
+        "peekOfCode": "urlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    path(\"diagnostico/\", DiagnosticoView.as_view(), name=\"diagnostico\"),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },

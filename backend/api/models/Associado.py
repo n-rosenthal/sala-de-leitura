@@ -1,48 +1,62 @@
 """
     `backend/api/models/Associado.py`
     
-    Definição do modelo de dados `Associado`.
-    Um `Associado` é uma entidade definida por:
-    
-    - `nome`        :   str, nome do associado
-    - `aniversario` :   date, aniversário do associado
-    - `esta_ativo`  :   bool, indica se o associado está ativo
-    - `gerente`     :   bool, indica se o associado é gerente
-    
-    
-    @version: 1.1
+    `Associado` é o perfil estendido de um usuário (`Django.models.User`) da sala de leitura. Armazena informações específicas da sua aplicação que não existem no User padrão.
+
+
+    @version: 2.0
 """
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 class Associado(models.Model):
     """
-        Modelo para um associado (usuário) da sala de leitura.
-        
-        Um associado é caracterizado por
-        -   seu nome;
-        -   seu aniversário;
-        -   se ele está ativo;
-        -   se ele é gerente.
+        Perfil estendido para usuários da sala de leitura.
+        Complementa o modelo User padrão do Django.
     """
     user = models.OneToOneField(
-            settings.AUTH_USER_MODEL,
-            on_delete=models.CASCADE,
-            related_name="associado",
-        )
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="associado",
+        verbose_name="Usuário"
+    )
+    
+    # perfil estendido: campos que não existem no User padrão
+    aniversario = models.DateField(
+        verbose_name="Data de aniversário",
+        help_text="Data de nascimento do associado"
+    )
+    
+    telefone = models.CharField(
+        max_length=20,
+        blank=True,
+        verbose_name="Telefone"
+    )
 
-    nome = models.CharField(max_length=255)
-    aniversario = models.DateField()
-    esta_ativo = models.BooleanField(default=True)
-    gerente = models.BooleanField(default=False)
+    class Meta:
+        verbose_name = "Associado"
+        verbose_name_plural = "Associados"
+        ordering = ['user__first_name']
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        # domínio manda → auth reflete
-        if self.user:
-            self.user.is_staff = self.gerente
-            self.user.save(update_fields=["is_staff"])
-
     def __str__(self):
-        return self.nome
+        return f"{self.user.get_full_name()} - {self.user.username}"
+
+    # Propriedades úteis
+    @property
+    def nome_completo(self):
+        """Delega para o User"""
+        return self.user.get_full_name()
+    
+    @property
+    def email(self):
+        """Delega para o User"""
+        return self.user.email
+    
+    @property
+    def esta_ativo(self):
+        """Delega para o User"""
+        return self.user.is_active

@@ -1,5 +1,8 @@
-# api/signals.py
-
+"""
+    `backend/api/signals.py`
+    
+    Sinais para o back-end.
+"""
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import Emprestimo, Livro, Associado

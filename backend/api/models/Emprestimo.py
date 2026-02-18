@@ -77,8 +77,6 @@ class Emprestimo(models.Model):
         Validação de um empréstimo **ANTERIOR** a sua criação.
         """
         if self._state.adding:
-            print(f"🔍 DEBUG clean() - Livro ID: {self.livro.id}, Status: {self.livro.status}")
-            print(f"🔍 DEBUG clean() - pode_ser_emprestado: {self.livro.pode_ser_emprestado()}")
             
             # Verifica se o livro pode ser emprestado
             if not self.livro.pode_ser_emprestado():
