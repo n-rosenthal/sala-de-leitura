@@ -38,19 +38,25 @@ class AssociadoSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'data_cadastro', 'is_active']
     
     def create(self, validated_data):
-        """Cria User e Associado juntos"""
-        user_data = validated_data.pop('user', {})
+        """
+        Cria um novo Associado com base nos dados fornecidos.
         
-        # Cria o User
+        Processo:
+        1. Separa dados do User e do Associado
+        2. Cria User com create_user
+        3. Cria Associado com os dados fornecidos
+        4. Retorna o Associado criado
+        """
+        user_data = validated_data.pop('user', {})
+        password = validated_data.pop('password', None)
+
         user = User.objects.create_user(
             username=user_data.get('username'),
             email=user_data.get('email'),
             first_name=user_data.get('first_name', ''),
             last_name=user_data.get('last_name', ''),
-            password=self.context['request'].data.get('password')  # Tratar senha separadamente
+            password=password
         )
-        
-        # Cria o Associado
         associado = Associado.objects.create(user=user, **validated_data)
         return associado
     
@@ -82,20 +88,11 @@ class AssociadoCreateSerializer(AssociadoSerializer):
     
     def validate(self, data):
         """Validação personalizada para criação"""
-        if data.get('user', {}).get('password') != data.get('password_confirmation'):
+        if data.get('password') != data.get('password_confirmation'):
             raise serializers.ValidationError({"password": "As senhas não coincidem."})
         return data
     
     def create(self, validated_data):
-        # Remove campos extras
-        password = validated_data.pop('password')
         validated_data.pop('password_confirmation', None)
-        
-        # Chama o create do pai
-        associado = super().create(validated_data)
-        
-        # Define a senha
-        associado.user.set_password(password)
-        associado.user.save()
-        
-        return associado
+        # 'password' permanece em validated_data e o pai irá consumi-lo
+        return super().create(validated_data)

@@ -1,27 +1,23 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
 
 from .models import Livro, Associado, Emprestimo
 
 
 
 class AssociadoInline(admin.StackedInline):
-    """Inline para editar objetos `Associado` dentro do User no admin."""
     model = Associado
     can_delete = False
-    verbose_name_plural = "Associado"
-    fields = ('aniversario', 'telefone',)
+    verbose_name_plural = 'Perfil Associado'
+    fields = ['aniversario', 'telefone']
 
-class UserAdmin(BaseUserAdmin):
-    """Personaliza o admin do User para incluir o `Associado inline`."""
-    inlines = (AssociadoInline,)
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_active', 'is_staff')
-    list_filter = ('is_active', 'is_staff', 'is_superuser')
+class UserWithAssociadoAdmin(UserAdmin):
+    inlines = [AssociadoInline]
 
-# Re-registra o User com o admin personalizado
+# Substitui o UserAdmin padrão
 admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+admin.site.register(User, UserWithAssociadoAdmin)
 
 
 @admin.register(Associado)
