@@ -14,20 +14,26 @@ class DiagnosticoView(APIView):
     
     def get(self, request):
         """Retorna diagnóstico de inconsistências no sistema"""
-        livros      = Livro.objects.all()
-        associados  = Associado.objects.all()
-        emprestimos = Emprestimo.objects.all()
+        livros      = {
+            'count': Livro.objects.all(),
+            'disponiveis': Livro.objects.filter(status='DISPONIVEL'),
+            'emprestados': Livro.objects.filter(status='EMPRESTADO')
+        }
+
+        associados  = {
+            'count': Associado.objects.all(),
+            'ativos': Associado.objects.filter(is_active=True),
+            'inativos': Associado.objects.filter(is_active=False)
+        }
+        
+        emprestimos  = {
+            'count': Emprestimo.objects.all(),
+            'ativos': Emprestimo.objects.filter(data_devolucao__isnull=True),
+            'devolvidos': Emprestimo.objects.filter(data_devolucao__isnull=False)
+        }
         
         return Response({
-            'livros': {
-                'count' : len(livros)
-            },
-
-            'associados': {
-                'count': len(associados)
-            },
-
-            'emprestimos': {
-                'count': len(emprestimos)
-            }
+            'livros': livros,
+            'associados': associados,
+            'emprestimos': emprestimos
         })
