@@ -1,31 +1,19 @@
 """
     `backend/api/serializers/Emprestimo.py`
-    
-    Serializer para entidade `Emprestimo`.
-    Exibe todos os campos de um `Emprestimo`.
-    
-    @version: 1.2
+
+    @version: 1.3
 """
-
 from rest_framework import serializers
-
 from ..models import Emprestimo
 
+
 class EmprestimoSerializer(serializers.ModelSerializer):
-    livro_titulo = serializers.CharField(
-        source="livro.titulo", read_only=True
-    )
-    associado_nome = serializers.CharField(
-        source="associado.nome", read_only=True
-    )
-    
-    # Campos extras para informações do gerente (apenas leitura)
-    quem_emprestou_nome = serializers.CharField(
-        source="quem_emprestou.nome", read_only=True
-    )
-    quem_devolveu_nome = serializers.CharField(
-        source="quem_devolveu.nome", read_only=True
-    )
+    livro_titulo = serializers.CharField(source="livro.titulo", read_only=True)
+
+    # ✅ Bug 5 corrigido: Associado não tem campo 'nome'; o nome vem do User relacionado
+    associado_nome = serializers.SerializerMethodField()
+    quem_emprestou_nome = serializers.SerializerMethodField()
+    quem_devolveu_nome = serializers.SerializerMethodField()
 
     class Meta:
         model = Emprestimo
@@ -39,9 +27,9 @@ class EmprestimoSerializer(serializers.ModelSerializer):
             "data_prevista",
             "data_devolucao",
             "quem_emprestou",
-            "quem_emprestou_nome",  # Campo somente leitura
+            "quem_emprestou_nome",
             "quem_devolveu",
-            "quem_devolveu_nome",   # Campo somente leitura
+            "quem_devolveu_nome",
         ]
         read_only_fields = [
             "id",
@@ -52,3 +40,18 @@ class EmprestimoSerializer(serializers.ModelSerializer):
             "livro_titulo",
             "associado_nome",
         ]
+
+    def _nome_associado(self, associado):
+        if associado is None:
+            return None
+        nome = associado.user.get_full_name()
+        return nome if nome.strip() else associado.user.username
+
+    def get_associado_nome(self, obj):
+        return self._nome_associado(obj.associado)
+
+    def get_quem_emprestou_nome(self, obj):
+        return self._nome_associado(obj.quem_emprestou)
+
+    def get_quem_devolveu_nome(self, obj):
+        return self._nome_associado(obj.quem_devolveu)

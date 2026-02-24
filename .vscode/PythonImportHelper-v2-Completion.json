@@ -502,6 +502,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -588,6 +604,15 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "api.models.Emprestimo",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "api.models.Emprestimo",
+        "description": "api.models.Emprestimo",
+        "detail": "api.models.Emprestimo",
         "documentation": {}
     },
     {
@@ -1315,6 +1340,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0016_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=api.models.Emprestimo.default_data_prevista),\n        ),",
+        "detail": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
         "label": "Associado",
         "kind": 6,
         "importPath": "backend.api.models.Associado",
@@ -1337,7 +1371,16 @@
         "kind": 6,
         "importPath": "backend.api.models.Emprestimo",
         "description": "backend.api.models.Emprestimo",
-        "peekOfCode": "class Emprestimo(models.Model):\n    \"\"\"\n    Entidade `Emprestimo`:\n    - `livro`        :   Livro, livro emprestado\n    - `associado`    :   Associado, associado que emprestou o livro\n    - `data_emprestimo` :   date, data em que o livro foi emprestado\n    - `data_devolucao`  :   date, data em que o livro foi devolvido\n    \"\"\"\n    class Meta:\n        indexes = [",
+        "peekOfCode": "class Emprestimo(models.Model):\n    class Meta:\n        indexes = [\n            models.Index(fields=[\"data_devolucao\"]),\n            models.Index(fields=[\"data_prevista\"]),\n            models.Index(fields=[\"livro\"]),\n            models.Index(fields=[\"associado\"]),\n        ]\n    livro = models.ForeignKey(\n        Livro,",
+        "detail": "backend.api.models.Emprestimo",
+        "documentation": {}
+    },
+    {
+        "label": "default_data_prevista",
+        "kind": 2,
+        "importPath": "backend.api.models.Emprestimo",
+        "description": "backend.api.models.Emprestimo",
+        "peekOfCode": "def default_data_prevista():\n    \"\"\"Callable: avaliado por instância, não no import.\"\"\"\n    return now().date() + timedelta(days=7)\nclass Emprestimo(models.Model):\n    class Meta:\n        indexes = [\n            models.Index(fields=[\"data_devolucao\"]),\n            models.Index(fields=[\"data_prevista\"]),\n            models.Index(fields=[\"livro\"]),\n            models.Index(fields=[\"associado\"]),",
         "detail": "backend.api.models.Emprestimo",
         "documentation": {}
     },
@@ -1373,7 +1416,7 @@
         "kind": 6,
         "importPath": "backend.api.serializers.Emprestimo",
         "description": "backend.api.serializers.Emprestimo",
-        "peekOfCode": "class EmprestimoSerializer(serializers.ModelSerializer):\n    livro_titulo = serializers.CharField(\n        source=\"livro.titulo\", read_only=True\n    )\n    associado_nome = serializers.CharField(\n        source=\"associado.nome\", read_only=True\n    )\n    # Campos extras para informações do gerente (apenas leitura)\n    quem_emprestou_nome = serializers.CharField(\n        source=\"quem_emprestou.nome\", read_only=True",
+        "peekOfCode": "class EmprestimoSerializer(serializers.ModelSerializer):\n    livro_titulo = serializers.CharField(source=\"livro.titulo\", read_only=True)\n    # ✅ Bug 5 corrigido: Associado não tem campo 'nome'; o nome vem do User relacionado\n    associado_nome = serializers.SerializerMethodField()\n    quem_emprestou_nome = serializers.SerializerMethodField()\n    quem_devolveu_nome = serializers.SerializerMethodField()\n    class Meta:\n        model = Emprestimo\n        fields = [\n            \"id\",",
         "detail": "backend.api.serializers.Emprestimo",
         "documentation": {}
     },
@@ -1418,7 +1461,7 @@
         "kind": 6,
         "importPath": "backend.api.views.Diagnostico",
         "description": "backend.api.views.Diagnostico",
-        "peekOfCode": "class DiagnosticoView(APIView):\n    permission_classes = [AllowAny()]\n    def get(self, request):\n        \"\"\"Retorna diagnóstico de inconsistências no sistema\"\"\"\n        livros      = Livro.objects.all()\n        associados  = Associado.objects.all()\n        emprestimos = Emprestimo.objects.all()\n        return Response({\n            'livros': {\n                'count' : len(livros)",
+        "peekOfCode": "class DiagnosticoView(APIView):\n    permission_classes = [AllowAny()]\n    def get(self, request):\n        \"\"\"Retorna diagnóstico de inconsistências no sistema\"\"\"\n        livros      = {\n            'count': Livro.objects.all(),\n            'disponiveis': Livro.objects.filter(status='DISPONIVEL'),\n            'emprestados': Livro.objects.filter(status='EMPRESTADO')\n        }\n        associados  = {",
         "detail": "backend.api.views.Diagnostico",
         "documentation": {}
     },
@@ -1427,7 +1470,7 @@
         "kind": 6,
         "importPath": "backend.api.views.Emprestimo",
         "description": "backend.api.views.Emprestimo",
-        "peekOfCode": "class EmprestimoViewSet(viewsets.ModelViewSet):\n    #   serializador para `Emprestimo`\n    serializer_class = EmprestimoSerializer\n    def get_queryset(self):\n        \"\"\"\n            Retorna todos os empréstimos para gerentes e administradores,\n            ou apenas os empréstimos do próprio usuário comum.\n        \"\"\"\n        user = self.request.user\n        # Gerentes e admins veem tudo",
+        "peekOfCode": "class EmprestimoViewSet(viewsets.ModelViewSet):\n    serializer_class = EmprestimoSerializer\n    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]\n    filterset_fields = [\"livro\", \"associado\"]\n    search_fields = [\"livro__titulo\"]\n    ordering_fields = [\"data_emprestimo\", \"livro__titulo\"]\n    def get_queryset(self):\n        user = self.request.user\n        if user.is_staff or user.is_superuser:\n            return Emprestimo.objects.all().order_by(\"-data_emprestimo\")",
         "detail": "backend.api.views.Emprestimo",
         "documentation": {}
     },
