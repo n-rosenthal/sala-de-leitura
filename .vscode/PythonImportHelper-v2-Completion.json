@@ -518,6 +518,38 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -583,6 +615,14 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -591,6 +631,14 @@
         "documentation": {}
     },
     {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
@@ -604,6 +652,22 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
         "documentation": {}
     },
     {
@@ -680,11 +744,19 @@
         "documentation": {}
     },
     {
-        "label": "now",
-        "importPath": "django.utils.timezone",
-        "description": "django.utils.timezone",
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
         "isExtraImport": true,
-        "detail": "django.utils.timezone",
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
         "documentation": {}
     },
     {
@@ -745,6 +817,14 @@
     },
     {
         "label": "filters",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -842,14 +922,6 @@
     },
     {
         "label": "AllowAny",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -1074,6 +1146,14 @@
     },
     {
         "label": "DiagnosticoView",
+        "importPath": "api.views.Diagnostico",
+        "description": "api.views.Diagnostico",
+        "isExtraImport": true,
+        "detail": "api.views.Diagnostico",
+        "documentation": {}
+    },
+    {
+        "label": "LivrosDiagnosticoView",
         "importPath": "api.views.Diagnostico",
         "description": "api.views.Diagnostico",
         "isExtraImport": true,
@@ -1344,8 +1424,35 @@
         "kind": 6,
         "importPath": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
         "description": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0016_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=api.models.Emprestimo.default_data_prevista),\n        ),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0016_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=default_data_prevista),\n        ),",
         "detail": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
+        "label": "default_data_prevista",
+        "kind": 2,
+        "importPath": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "peekOfCode": "def default_data_prevista():\n    return now().date() + timedelta(days=7)\nclass Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0016_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',",
+        "detail": "backend.api.migrations.0017_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0018_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0018_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0017_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default=api.models.Emprestimo.default_data_prevista),\n        ),",
+        "detail": "backend.api.migrations.0018_alter_emprestimo_data_prevista",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0019_alter_emprestimo_data_prevista",
+        "description": "backend.api.migrations.0019_alter_emprestimo_data_prevista",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0018_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='emprestimo',\n            name='data_prevista',\n            field=models.DateField(default='Emprestimo.default_data_prevista'),\n        ),",
+        "detail": "backend.api.migrations.0019_alter_emprestimo_data_prevista",
         "documentation": {}
     },
     {
@@ -1372,15 +1479,6 @@
         "importPath": "backend.api.models.Emprestimo",
         "description": "backend.api.models.Emprestimo",
         "peekOfCode": "class Emprestimo(models.Model):\n    class Meta:\n        indexes = [\n            models.Index(fields=[\"data_devolucao\"]),\n            models.Index(fields=[\"data_prevista\"]),\n            models.Index(fields=[\"livro\"]),\n            models.Index(fields=[\"associado\"]),\n        ]\n    livro = models.ForeignKey(\n        Livro,",
-        "detail": "backend.api.models.Emprestimo",
-        "documentation": {}
-    },
-    {
-        "label": "default_data_prevista",
-        "kind": 2,
-        "importPath": "backend.api.models.Emprestimo",
-        "description": "backend.api.models.Emprestimo",
-        "peekOfCode": "def default_data_prevista():\n    \"\"\"Callable: avaliado por instância, não no import.\"\"\"\n    return now().date() + timedelta(days=7)\nclass Emprestimo(models.Model):\n    class Meta:\n        indexes = [\n            models.Index(fields=[\"data_devolucao\"]),\n            models.Index(fields=[\"data_prevista\"]),\n            models.Index(fields=[\"livro\"]),\n            models.Index(fields=[\"associado\"]),",
         "detail": "backend.api.models.Emprestimo",
         "documentation": {}
     },
@@ -1461,7 +1559,16 @@
         "kind": 6,
         "importPath": "backend.api.views.Diagnostico",
         "description": "backend.api.views.Diagnostico",
-        "peekOfCode": "class DiagnosticoView(APIView):\n    permission_classes = [AllowAny()]\n    def get(self, request):\n        \"\"\"Retorna diagnóstico de inconsistências no sistema\"\"\"\n        livros      = {\n            'count': Livro.objects.all(),\n            'disponiveis': Livro.objects.filter(status='DISPONIVEL'),\n            'emprestados': Livro.objects.filter(status='EMPRESTADO')\n        }\n        associados  = {",
+        "peekOfCode": "class DiagnosticoView(APIView):\n    \"\"\"\n    View para diagnóstico e análise de dados do sistema.\n    Fornece estatísticas e verificações de consistência.\n    \"\"\"\n    permission_classes = [AllowAny]\n    def get(self, request):\n        \"\"\"\n        Retorna diagnóstico completo do sistema.\n        Suporta parâmetros de consulta para filtrar dados específicos.",
+        "detail": "backend.api.views.Diagnostico",
+        "documentation": {}
+    },
+    {
+        "label": "LivrosDiagnosticoView",
+        "kind": 6,
+        "importPath": "backend.api.views.Diagnostico",
+        "description": "backend.api.views.Diagnostico",
+        "peekOfCode": "class LivrosDiagnosticoView(APIView):\n    \"\"\"\n    View específica para diagnóstico de livros.\n    URL: /api/diagnostico/livros/\n    \"\"\"\n    permission_classes = [AllowAny]\n    def get(self, request):\n        \"\"\"\n        Retorna todos os livros agrupados por título.\n        Cada título contém uma lista de ides das cópias.",
         "detail": "backend.api.views.Diagnostico",
         "documentation": {}
     },
@@ -1470,7 +1577,7 @@
         "kind": 6,
         "importPath": "backend.api.views.Emprestimo",
         "description": "backend.api.views.Emprestimo",
-        "peekOfCode": "class EmprestimoViewSet(viewsets.ModelViewSet):\n    serializer_class = EmprestimoSerializer\n    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]\n    filterset_fields = [\"livro\", \"associado\"]\n    search_fields = [\"livro__titulo\"]\n    ordering_fields = [\"data_emprestimo\", \"livro__titulo\"]\n    def get_queryset(self):\n        user = self.request.user\n        if user.is_staff or user.is_superuser:\n            return Emprestimo.objects.all().order_by(\"-data_emprestimo\")",
+        "peekOfCode": "class EmprestimoViewSet(viewsets.ModelViewSet):\n    serializer_class = EmprestimoSerializer\n    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]\n    filterset_fields = [\"livro\", \"associado\"]\n    search_fields = [\"livro__titulo\"]\n    ordering_fields = [\"data_emprestimo\", \"livro__titulo\"]\n    def get_queryset(self):\n        return Emprestimo.objects.all().order_by(\"-data_emprestimo\")\n    @transaction.atomic\n    def perform_create(self, serializer):",
         "detail": "backend.api.views.Emprestimo",
         "documentation": {}
     },
@@ -1551,7 +1658,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(\"livros\", LivroViewSet, basename=\"livro\")\nrouter.register(\"emprestimos\", EmprestimoViewSet, basename=\"emprestimo\")\nrouter.register(\"associados\", AssociadoViewSet, basename=\"associado\")\nurlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    path(\"diagnostico/\", DiagnosticoView.as_view(), name=\"diagnostico\"),\n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(\"livros\", LivroViewSet, basename=\"livro\")\nrouter.register(\"emprestimos\", EmprestimoViewSet, basename=\"emprestimo\")\nrouter.register(\"associados\", AssociadoViewSet, basename=\"associado\")\nurlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    # Diagnóstico endpoints\n    path('diagnostico/', DiagnosticoView.as_view(), name='diagnostico'),",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1560,7 +1667,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    path(\"diagnostico/\", DiagnosticoView.as_view(), name=\"diagnostico\"),\n]",
+        "peekOfCode": "urlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    # Diagnóstico endpoints\n    path('diagnostico/', DiagnosticoView.as_view(), name='diagnostico'),\n    path('diagnostico/livros/', LivrosDiagnosticoView.as_view(), name='diagnostico-livros'),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },

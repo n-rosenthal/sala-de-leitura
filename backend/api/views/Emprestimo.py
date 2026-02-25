@@ -42,27 +42,15 @@ class EmprestimoViewSet(viewsets.ModelViewSet):
     ordering_fields = ["data_emprestimo", "livro__titulo"]
 
     def get_queryset(self):
-        user = self.request.user
-        if user.is_staff or user.is_superuser:
-            return Emprestimo.objects.all().order_by("-data_emprestimo")
-        try:
-            return Emprestimo.objects.filter(
-                associado=user.associado
-            ).order_by("-data_emprestimo")
-        except Exception:
-            return Emprestimo.objects.none()
+        return Emprestimo.objects.all().order_by("-data_emprestimo")
 
-    def get_permissions(self):
-        if self.action in ["create", "update", "partial_update", "devolver_livro", "renovar"]:
-            return [IsAuthenticated(), IsStaff()]
-        return [IsAuthenticated()]
 
     @transaction.atomic
     def perform_create(self, serializer):
         """
-        ✅ Bug 3 corrigido: a verificação de disponibilidade agora usa select_for_update()
-        e está dentro de transaction.atomic, prevenindo race conditions.
-        O modelo também trava no clean(), garantindo dupla proteção.
+        Criação de empréstimo.
+
+        Trava o livro para escrita exclusiva durante esta transação.
         """
         livro_id = serializer.validated_data["livro"].pk
 
@@ -93,6 +81,22 @@ class EmprestimoViewSet(viewsets.ModelViewSet):
 
     @transaction.atomic
     def perform_update(self, serializer):
+        """
+        Atualiza um `Emprestimo` com base nos dados validados no serializer.
+
+        Verifica se o empréstimo foi devolvido anteriormente e se sim, lança um erro.
+
+        Caso contrário, verifica se o usuário autenticado tem permissão para devolver o empréstimo e se sim,
+
+        - Atualiza o status do livro para DISPONIVEL
+        - Atualiza o quem devolveu com o usuário autenticado
+        - Salva as alterações e registra as mudanças no log de ações do sistema.
+
+        :param serializer: Serializer com os dados validados para atualizar o `Emprestimo`
+        :type serializer: EmprestimoSerializer
+        :return: O `Emprestimo` atualizado
+        :rtype: Emprestimo
+        """
         instance = self.get_object()
         livro = instance.livro
 
@@ -180,7 +184,6 @@ class EmprestimoViewSet(viewsets.ModelViewSet):
     def renovar(self, request, pk=None):
         """
         Renova um empréstimo ativo, estendendo data_prevista em 7 dias.
-        ✅ Bug 4 corrigido: usa data_prevista (nome correto do campo).
         """
         emprestimo = self.get_object()
 
@@ -193,7 +196,6 @@ class EmprestimoViewSet(viewsets.ModelViewSet):
         base = emprestimo.data_prevista or timezone.now().date()
         nova_data = base + timedelta(days=dias_renovacao)
 
-        # ✅ nome correto do campo: data_prevista
         emprestimo.data_prevista = nova_data
         emprestimo.save()
 

@@ -9,7 +9,7 @@ from api.views.Associado import AssociadoViewSet
 
 
 #   view para diagnósticos sobre os objetos ({livro, empréstimo, associado}) da sala de leitura
-from api.views.Diagnostico import DiagnosticoView
+from api.views.Diagnostico import DiagnosticoView, LivrosDiagnosticoView
 
 
 router = DefaultRouter()
@@ -23,5 +23,7 @@ urlpatterns = [
     path("", include(router.urls)),
     
     # OUTROS
-    path("diagnostico/", DiagnosticoView.as_view(), name="diagnostico"),
+    # Diagnóstico endpoints
+    path('diagnostico/', DiagnosticoView.as_view(), name='diagnostico'),
+    path('diagnostico/livros/', LivrosDiagnosticoView.as_view(), name='diagnostico-livros'),
 ]

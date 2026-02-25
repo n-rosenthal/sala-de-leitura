@@ -12,11 +12,6 @@ from .Livro import Livro
 from .Associado import Associado
 
 
-def default_data_prevista():
-    """Callable: avaliado por instância, não no import."""
-    return now().date() + timedelta(days=7)
-
-
 class Emprestimo(models.Model):
     class Meta:
         indexes = [
@@ -39,7 +34,7 @@ class Emprestimo(models.Model):
     data_emprestimo = models.DateField(auto_now_add=True)
 
     # default é um callable, não um valor fixo calculado no boot
-    data_prevista = models.DateField(default=default_data_prevista)
+    data_prevista = models.DateField(default='Emprestimo.default_data_prevista')
 
     data_devolucao = models.DateField(null=True, blank=True)
 
@@ -57,6 +52,14 @@ class Emprestimo(models.Model):
         null=True,
         blank=True,
     )
+
+    @staticmethod
+    def default_data_prevista():
+        """ Método para obtenção da data prevista de devolução em um empréstimo.
+        
+        Por padrão, a data prevista para devolução é 7 dias a partir da data de empréstimo.
+        """
+        return now().date() + timedelta(days=7)
 
     def clean(self):
         """
