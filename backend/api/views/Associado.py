@@ -1,370 +1,365 @@
 """
     `backend/api/views/Associado.py`
-    
-    ViewSet para o modelo de dados `Associado` usando Django REST framework.
-    `Associado` é o perfil estendido de um usuário da aplicação, `User`.
-    
-    Implementa as operações CRUD, endpoints personalizados {} e permissões granulares (ainda não implementado).
-    
-    @version: 2.0
+
+    ViewSet para o modelo `Associado`.
+    `Associado` é o perfil estendido de um `User` da aplicação.
+
+    @version: 3.0
 """
 
-from rest_framework import viewsets, permissions, status, filters
+from rest_framework import viewsets, filters, status
 from rest_framework.decorators import action
-import rest_framework.permissions
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.response import Response
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
+
 from django.db import transaction
 from django.core.exceptions import ValidationError
 
 from ..models import Associado
 from ..serializers import AssociadoSerializer, AssociadoCreateSerializer
+from ..services.audit_log import audit_log
 
 
 class AssociadoViewSet(viewsets.ModelViewSet):
     """
     ViewSet para gerenciar Associados.
-    
-    Fornece endpoints para:
-    - Listar todos os associados (com filtros)
-    - Criar novo associado (registro)
-    - Obter detalhes de um associado específico
-    - Atualizar/Deletar associado (com permissões)
-    - Endpoints personalizados: 'me', 'activate', 'deactivate'
+
+    Permissões
+    ----------
+    create                  AllowAny    (registro público)
+    list / retrieve         IsAuthenticated
+    update / partial_update IsAuthenticated + IsOwnerOrStaff  (ver get_permissions)
+    destroy                 IsAdminUser
+    me / atualizar_me       IsAuthenticated
+    activate / deactivate   IsAdminUser
+    search_associados       IsAuthenticated
+
+    Endpoints personalizados
+    ------------------------
+    GET         /api/associados/me/
+    PUT/PATCH   /api/associados/me/atualizar/
+    POST        /api/associados/{id}/activate/
+    POST        /api/associados/{id}/deactivate/
+    GET         /api/associados/search/?q=termo
     """
-    queryset = Associado.objects.select_related('user').all()
+
+    queryset = Associado.objects.select_related("user").all()
     serializer_class = AssociadoSerializer
+
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = [
-        'user__username',
-        'user__email', 
-        'user__first_name',
-        'user__last_name',
-        'telefone'
+        "user__username",
+        "user__email",
+        "user__first_name",
+        "user__last_name",
+        "telefone",
     ]
-    ordering_fields = [
-        'user__username',
-        'user__date_joined',
-        'aniversario',
-        'data_cadastro'
-    ]
-    ordering = ['user__username']
-    
+    ordering_fields = ["user__username", "user__date_joined", "aniversario", "data_cadastro"]
+    ordering = ["user__username"]
+
+    # ---------------------------------------------------------------------- #
+    #  Permissions & serializer selection                                      #
+    # ---------------------------------------------------------------------- #
+
     def get_permissions(self):
         """
-        Define permissões baseadas na ação.
-        
-        - CREATE: Qualquer um pode criar (registro)
-        - LIST: Apenas autenticados
-        - RETRIEVE: Autenticados podem ver qualquer um
-        - UPDATE/DELETE: Dono ou admin
-        - Ações personalizadas: Baseadas no contexto
-        
-        Atualmente não implementado.
+        Permissões granulares por ação.
+
+        NOTE: IsOwnerOrStaff is a custom permission you should implement in
+        `api/permissions.py`.  Until then the commented line falls back to
+        IsAuthenticated.
         """
-        # if self.action == 'create':
-        #     return [permissions.AllowAny()]
-        # elif self.action == 'list':
-        #     return [permissions.IsAuthenticated()]
-        # elif self.action in ['retrieve', 'update', 'partial_update', 'destroy']:
-        #     return [permissions.IsAuthenticated(), IsOwnerOrReadOnly()]
-        # elif self.action in ['me', 'atualizar_me']:
-        #     return [permissions.IsAuthenticated()]
-        # elif self.action in ['activate', 'deactivate']:
-        #     return [permissions.IsAdminUser()]
-        # return [permissions.IsAuthenticated()]
-        return [permissions.AllowAny()]
-    
+        if self.action == "create":
+            return [AllowAny()]
+        if self.action in ["activate", "deactivate", "destroy"]:
+            return [IsAdminUser()]
+        if self.action in ["update", "partial_update"]:
+            # return [IsAuthenticated(), IsOwnerOrStaff()]
+            return [IsAuthenticated()]
+        return [IsAuthenticated()]
+
     def get_serializer_class(self):
-        """
-        Seleciona o serializer apropriado baseado na ação.
-        
-        - CREATE: AssociadoCreateSerializer (com validação de senha)
-        - Outras ações: AssociadoSerializer padrão
-        """
-        if self.action == 'create':
+        if self.action == "create":
             return AssociadoCreateSerializer
         return AssociadoSerializer
-    
+
     def get_queryset(self):
         """
-        Filtra o queryset baseado no usuário e permissões.
-        
-        - Admin: Vê todos os associados
-        - Usuário normal: Vê apenas associados ativos
-        - Dono: Pode ver seu próprio perfil mesmo se inativo
+        Admins vêem todos os associados.
+        Usuários normais vêem apenas associados ativos.
         """
         queryset = super().get_queryset()
-        # user = self.request.user
-        
-        # if not user.is_authenticated:
-        #     return queryset.none()
-        
-        # # Admin vê tudo
-        # if user.is_superuser or user.is_staff:
-        #     return queryset
-        
-        # # Usuários normais só veem ativos, mas podem ver seu próprio perfil
-        # queryset = queryset.filter(user__is_active=True)
-        
-        # # Se for o próprio perfil, inclui mesmo se inativo
-        # if self.action == 'retrieve':
-        #     try:
-        #         if str(self.kwargs.get('pk')) == str(user.associado.id):
-        #             return Associado.objects.select_related('user').filter(id=user.associado.id)
-        #     except Associado.DoesNotExist:
-        #         pass
-        
-        return queryset
+        user = self.request.user
+
+        if not user.is_authenticated:
+            return queryset.none()
+
+        if user.is_superuser or user.is_staff:
+            return queryset
+
+        return queryset.filter(user__is_active=True)
+
+    # ---------------------------------------------------------------------- #
+    #  CRUD overrides                                                          #
+    # ---------------------------------------------------------------------- #
 
     def create(self, request, *args, **kwargs):
-        """
-        Cria um novo Associado (registro).
-        
-        Processo:
-        1. Valida dados com AssociadoCreateSerializer
-        2. Cria User e Associado em transação atômica
-        3. Retorna dados criados com status 201
-        """
+        """Registro de novo Associado (cria User + Associado atomicamente)."""
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        
+
         try:
             with transaction.atomic():
                 associado = serializer.save()
-            
-            # Serializar resposta (sem senha)
-            response_serializer = AssociadoSerializer(
-                associado,
-                context=self.get_serializer_context()
-            )
-            
-            headers = self.get_success_headers(response_serializer.data)
-            return Response(
-                response_serializer.data,
-                status=status.HTTP_201_CREATED,
-                headers=headers
-            )
-        
-        except ValidationError as e:
-            return Response(
-                {'detail': str(e) + ' - ' + str(serializer.errors)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-    
+        except ValidationError as exc:
+            return Response({"detail": str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+
+        audit_log(
+            action="CREATE",
+            resource_type="associado",
+            resource_id=associado.id,
+            # No authenticated user during public registration; log the new username.
+            message=f"Associado registrado: '{associado.user.username}'",
+        )
+
+        response_serializer = AssociadoSerializer(associado, context=self.get_serializer_context())
+        headers = self.get_success_headers(response_serializer.data)
+        return Response(response_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
     def update(self, request, *args, **kwargs):
         """
         Atualização completa de Associado.
-        
-        Notas:
-        - Não permite alterar username via update regular
-        - Para alterar senha, use endpoint específico
+        Username não pode ser alterado via este endpoint.
         """
-        partial = kwargs.pop('partial', False)
+        partial = kwargs.pop("partial", False)
         instance = self.get_object()
-        
-        # Impede alteração de username via update
-        if 'username' in request.data:
-            request.data.pop('username', None)
-        
-        serializer = self.get_serializer(
-            instance, 
-            data=request.data, 
-            partial=partial
-        )
+
+        data = request.data.copy()
+        data.pop("username", None)  # username é imutável aqui
+
+        serializer = self.get_serializer(instance, data=data, partial=partial)
         serializer.is_valid(raise_exception=True)
-        
+
         try:
             with transaction.atomic():
                 self.perform_update(serializer)
-            
-            if getattr(instance, '_prefetched_objects_cache', None):
-                instance._prefetched_objects_cache = {}
-            
-            return Response(serializer.data)
-        
-        except ValidationError as e:
-            return Response(
-                {'detail': str(e)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-    
+        except ValidationError as exc:
+            return Response({"detail": str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+
+        audit_log(
+            action="UPDATE",
+            resource_type="associado",
+            resource_id=instance.id,
+            user=request.user,
+            request=request,
+            message=f"Associado atualizado: '{instance.user.username}'",
+        )
+
+        if getattr(instance, "_prefetched_objects_cache", None):
+            instance._prefetched_objects_cache = {}
+
+        return Response(serializer.data)
+
     def perform_update(self, serializer):
-        """Salva a instância durante update."""
         serializer.save()
-    
+
     def destroy(self, request, *args, **kwargs):
         """
-        Deleta um Associado e seu User relacionado.
-        
-        Notas:
-        - Apenas admin ou o próprio usuário pode deletar
-        - Implementação segura com transação
+        Deleta o Associado e o User vinculado.
+        Restrito a administradores (IsAdminUser via get_permissions).
         """
         instance = self.get_object()
         user = instance.user
-        
+
         try:
             with transaction.atomic():
                 self.perform_destroy(instance)
-                # Deleta o User também
                 user.delete()
-            
+        except Exception as exc:
             return Response(
-                {'detail': 'Associado deletado com sucesso.'},
-                status=status.HTTP_204_NO_CONTENT
+                {"detail": f"Erro ao deletar: {str(exc)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
-        
-        except Exception as e:
-            return Response(
-                {'detail': f'Erro ao deletar: {str(e)}'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
-    
+
+        audit_log(
+            action="DELETE",
+            resource_type="associado",
+            resource_id=instance.id,
+            user=request.user,
+            request=request,
+            message=f"Associado excluído: '{user.username}'",
+        )
+
+        return Response({"detail": "Associado deletado com sucesso."}, status=status.HTTP_204_NO_CONTENT)
+
     def perform_destroy(self, instance):
-        """Executa a deleção da instância."""
         instance.delete()
-    
-    @action(detail=False, methods=['get'])
+
+    # ---------------------------------------------------------------------- #
+    #  Custom actions — self                                                   #
+    # ---------------------------------------------------------------------- #
+
+    @action(detail=False, methods=["get"], url_path="me")
     def me(self, request):
         """
-        Endpoint para obter dados do usuário autenticado.
-        
+        Retorna o perfil do usuário autenticado.
+
         GET /api/associados/me/
         """
-        try:
-            associado = request.user.associado
-            serializer = self.get_serializer(associado)
-            return Response(serializer.data)
-        
-        except Associado.DoesNotExist:
-            return Response(
-                {'detail': 'Perfil de associado não encontrado.'},
-                status=status.HTTP_404_NOT_FOUND
-            )
-    
-    @action(detail=False, methods=['put', 'patch'], url_path='me/atualizar')
+        associado = self._get_my_associado(request)
+        return Response(self.get_serializer(associado).data)
+
+    @action(detail=False, methods=["put", "patch"], url_path="me/atualizar")
     def atualizar_me(self, request):
         """
-        Endpoint para atualizar dados do usuário autenticado.
-        
+        Atualiza o perfil do usuário autenticado.
+        Username é protegido da mesma forma que no update() padrão.
+
         PUT/PATCH /api/associados/me/atualizar/
         """
-        try:
-            associado = request.user.associado
-            partial = request.method == 'PATCH'
-            
-            # Impede alteração de username via este endpoint
-            if 'username' in request.data:
-                request.data.pop('username', None)
-            
-            serializer = self.get_serializer(
-                associado,
-                data=request.data,
-                partial=partial,
-                context=self.get_serializer_context()
-            )
-            serializer.is_valid(raise_exception=True)
-            
-            with transaction.atomic():
-                serializer.save()
-            
-            return Response(serializer.data)
-        
-        except Associado.DoesNotExist:
-            return Response(
-                {'detail': 'Perfil de associado não encontrado.'},
-                status=status.HTTP_404_NOT_FOUND
-            )
-    
-    @action(detail=True, methods=['post'])
+        associado = self._get_my_associado(request)
+
+        data = request.data.copy()
+        data.pop("username", None)
+
+        serializer = self.get_serializer(
+            associado,
+            data=data,
+            partial=(request.method == "PATCH"),
+            context=self.get_serializer_context(),
+        )
+        serializer.is_valid(raise_exception=True)
+
+        with transaction.atomic():
+            serializer.save()
+
+        audit_log(
+            action="UPDATE",
+            resource_type="associado",
+            resource_id=associado.id,
+            user=request.user,
+            request=request,
+            message=f"Associado atualizou o próprio perfil: '{request.user.username}'",
+        )
+
+        return Response(serializer.data)
+
+    # ---------------------------------------------------------------------- #
+    #  Custom actions — admin                                                  #
+    # ---------------------------------------------------------------------- #
+
+    @action(detail=True, methods=["post"])
     def activate(self, request, pk=None):
         """
-        Ativa um associado (admin only).
-        
+        Ativa um associado.  Admin only.
+
         POST /api/associados/{id}/activate/
         """
         associado = self.get_object()
-        
+
         if associado.user.is_active:
             return Response(
-                {'detail': 'Associado já está ativo.'},
-                status=status.HTTP_400_BAD_REQUEST
+                {"detail": "Associado já está ativo."},
+                status=status.HTTP_400_BAD_REQUEST,
             )
-        
+
         associado.user.is_active = True
-        associado.user.save()
-        
-        return Response(
-            {'detail': 'Associado ativado com sucesso.'},
-            status=status.HTTP_200_OK
+        associado.user.save(update_fields=["is_active"])
+
+        audit_log(
+            action="ACTIVATE",
+            resource_type="associado",
+            resource_id=associado.id,
+            user=request.user,
+            request=request,
+            message=f"Associado ativado: '{associado.user.username}'",
         )
-    
-    @action(detail=True, methods=['post'])
+
+        return Response({"detail": "Associado ativado com sucesso."}, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=["post"])
     def deactivate(self, request, pk=None):
         """
-        Desativa um associado (admin only).
-        
+        Desativa um associado.  Admin only.
+        Impede que o admin desative a si mesmo.
+
         POST /api/associados/{id}/deactivate/
         """
         associado = self.get_object()
-        
-        # Impede que admin desative a si mesmo
+
         if associado.user == request.user:
             return Response(
-                {'detail': 'Não é possível desativar seu próprio usuário.'},
-                status=status.HTTP_400_BAD_REQUEST
+                {"detail": "Não é possível desativar seu próprio usuário."},
+                status=status.HTTP_400_BAD_REQUEST,
             )
-        
+
         if not associado.user.is_active:
             return Response(
-                {'detail': 'Associado já está inativo.'},
-                status=status.HTTP_400_BAD_REQUEST
+                {"detail": "Associado já está inativo."},
+                status=status.HTTP_400_BAD_REQUEST,
             )
-        
+
         associado.user.is_active = False
-        associado.user.save()
-        
-        return Response(
-            {'detail': 'Associado desativado com sucesso.'},
-            status=status.HTTP_200_OK
+        associado.user.save(update_fields=["is_active"])
+
+        audit_log(
+            action="DEACTIVATE",
+            resource_type="associado",
+            resource_id=associado.id,
+            user=request.user,
+            request=request,
+            message=f"Associado desativado: '{associado.user.username}'",
         )
-    
-    @action(detail=False, methods=['get'], url_path='search')
+
+        return Response({"detail": "Associado desativado com sucesso."}, status=status.HTTP_200_OK)
+
+    # ---------------------------------------------------------------------- #
+    #  Custom actions — search                                                 #
+    # ---------------------------------------------------------------------- #
+
+    @action(detail=False, methods=["get"], url_path="search")
     def search_associados(self, request):
         """
-        Endpoint de busca avançada (opcional).
-        
+        Busca avançada por username, e-mail ou nome.
+        Admins recebem resultados incluindo inativos.
+
         GET /api/associados/search/?q=termo
         """
-        query = request.query_params.get('q', '')
-        
+        query = request.query_params.get("q", "").strip()
+
         if not query:
             return Response(
-                {'detail': 'Parâmetro de busca "q" é requerido.'},
-                status=status.HTTP_400_BAD_REQUEST
+                {"detail": 'Parâmetro de busca "q" é requerido.'},
+                status=status.HTTP_400_BAD_REQUEST,
             )
-        
-        # Busca em múltiplos campos
-        associados = Associado.objects.select_related('user').filter(
-            user__username__icontains=query
-        ) | Associado.objects.select_related('user').filter(
-            user__email__icontains=query
-        ) | Associado.objects.select_related('user').filter(
-            user__first_name__icontains=query
-        ) | Associado.objects.select_related('user').filter(
-            user__last_name__icontains=query
+
+        # Q objects evitam os múltiplos querysets unidos com |, que geram UNIONs
+        # ineficientes e podem duplicar resultados.
+        from django.db.models import Q
+
+        qs = self.get_queryset().filter(
+            Q(user__username__icontains=query)
+            | Q(user__email__icontains=query)
+            | Q(user__first_name__icontains=query)
+            | Q(user__last_name__icontains=query)
         )
-        
-        # Aplica filtros de permissão
-        if not request.user.is_superuser and not request.user.is_staff:
-            associados = associados.filter(user__is_active=True)
-        
-        page = self.paginate_queryset(associados)
+
+        # get_queryset() já filtra inativos para não-admins
+        return self._paginated_response(qs)
+
+    # ---------------------------------------------------------------------- #
+    #  Private helpers                                                         #
+    # ---------------------------------------------------------------------- #
+
+    def _get_my_associado(self, request) -> Associado:
+        try:
+            return request.user.associado
+        except Associado.DoesNotExist:
+            from rest_framework.exceptions import NotFound
+            raise NotFound("Perfil de associado não encontrado.")
+
+    def _paginated_response(self, queryset):
+        page = self.paginate_queryset(queryset)
         if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-        
-        serializer = self.get_serializer(associados, many=True)
-        return Response(serializer.data)
+            return self.get_paginated_response(self.get_serializer(page, many=True).data)
+        return Response(self.get_serializer(queryset, many=True).data)

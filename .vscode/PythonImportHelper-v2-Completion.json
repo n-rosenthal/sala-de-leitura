@@ -228,6 +228,14 @@
         "documentation": {}
     },
     {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -550,6 +558,14 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -712,14 +728,6 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
         "label": "ValidationError",
         "importPath": "django.core.exceptions",
         "description": "django.core.exceptions",
@@ -800,7 +808,7 @@
         "documentation": {}
     },
     {
-        "label": "permissions",
+        "label": "filters",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -809,14 +817,6 @@
     },
     {
         "label": "status",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "filters",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -880,48 +880,88 @@
         "documentation": {}
     },
     {
-        "label": "AuditLog",
-        "importPath": "api.models.AuditLog",
-        "description": "api.models.AuditLog",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "api.models.AuditLog",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "action",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "action",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "action",
-        "importPath": "rest_framework.decorators",
-        "description": "rest_framework.decorators",
-        "isExtraImport": true,
-        "detail": "rest_framework.decorators",
-        "documentation": {}
-    },
-    {
-        "label": "rest_framework.permissions",
+        "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
         "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
         "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -945,7 +985,7 @@
         "documentation": {}
     },
     {
-        "label": "IsAuthenticated",
+        "label": "BasePermission",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -982,14 +1022,6 @@
         "description": "rest_framework.response",
         "isExtraImport": true,
         "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "get_object_or_404",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -1456,6 +1488,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.api.migrations.0020_delete_auditlog",
+        "description": "backend.api.migrations.0020_delete_auditlog",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('api', '0019_alter_emprestimo_data_prevista'),\n    ]\n    operations = [\n        migrations.DeleteModel(\n            name='AuditLog',\n        ),\n    ]",
+        "detail": "backend.api.migrations.0020_delete_auditlog",
+        "documentation": {}
+    },
+    {
         "label": "Associado",
         "kind": 6,
         "importPath": "backend.api.models.Associado",
@@ -1528,12 +1569,21 @@
         "documentation": {}
     },
     {
-        "label": "AuditService",
-        "kind": 6,
-        "importPath": "backend.api.services.audit_service",
-        "description": "backend.api.services.audit_service",
-        "peekOfCode": "class AuditService:\n    @staticmethod\n    def log(\n        *,\n        user=None,\n        action,\n        resource_type=None,\n        resource_id=None,\n        success=True,\n        message=None,",
-        "detail": "backend.api.services.audit_service",
+        "label": "audit_log",
+        "kind": 2,
+        "importPath": "backend.api.services.audit_log",
+        "description": "backend.api.services.audit_log",
+        "peekOfCode": "def audit_log(\n    *,\n    action: str,\n    resource_type: str,\n    resource_id: int | str | None = None,\n    user=None,\n    request: HttpRequest | None = None,\n    success: bool = True,\n    message: str = \"\",\n    diff: dict | None = None,",
+        "detail": "backend.api.services.audit_log",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.api.services.audit_log",
+        "description": "backend.api.services.audit_log",
+        "peekOfCode": "logger = logging.getLogger(\"api.audit\")\n# --------------------------------------------------------------------------- #\n#  Public helper                                                               #\n# --------------------------------------------------------------------------- #\ndef audit_log(\n    *,\n    action: str,\n    resource_type: str,\n    resource_id: int | str | None = None,\n    user=None,",
+        "detail": "backend.api.services.audit_log",
         "documentation": {}
     },
     {
@@ -1550,7 +1600,7 @@
         "kind": 6,
         "importPath": "backend.api.views.Associado",
         "description": "backend.api.views.Associado",
-        "peekOfCode": "class AssociadoViewSet(viewsets.ModelViewSet):\n    \"\"\"\n    ViewSet para gerenciar Associados.\n    Fornece endpoints para:\n    - Listar todos os associados (com filtros)\n    - Criar novo associado (registro)\n    - Obter detalhes de um associado específico\n    - Atualizar/Deletar associado (com permissões)\n    - Endpoints personalizados: 'me', 'activate', 'deactivate'\n    \"\"\"",
+        "peekOfCode": "class AssociadoViewSet(viewsets.ModelViewSet):\n    \"\"\"\n    ViewSet para gerenciar Associados.\n    Permissões\n    ----------\n    create                  AllowAny    (registro público)\n    list / retrieve         IsAuthenticated\n    update / partial_update IsAuthenticated + IsOwnerOrStaff  (ver get_permissions)\n    destroy                 IsAdminUser\n    me / atualizar_me       IsAuthenticated",
         "detail": "backend.api.views.Associado",
         "documentation": {}
     },
@@ -1577,7 +1627,16 @@
         "kind": 6,
         "importPath": "backend.api.views.Emprestimo",
         "description": "backend.api.views.Emprestimo",
-        "peekOfCode": "class EmprestimoViewSet(viewsets.ModelViewSet):\n    serializer_class = EmprestimoSerializer\n    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]\n    filterset_fields = [\"livro\", \"associado\"]\n    search_fields = [\"livro__titulo\"]\n    ordering_fields = [\"data_emprestimo\", \"livro__titulo\"]\n    def get_queryset(self):\n        return Emprestimo.objects.all().order_by(\"-data_emprestimo\")\n    @transaction.atomic\n    def perform_create(self, serializer):",
+        "peekOfCode": "class EmprestimoViewSet(viewsets.ModelViewSet):\n    \"\"\"\n    ViewSet para gerenciar Empréstimos.\n    Permissões\n    ----------\n    Todos os endpoints exigem autenticação (IsAuthenticated).\n    Apenas gerentes/administradores devem criar e atualizar empréstimos —\n    aplique IsStaff nas ações 'create', 'update', 'partial_update' via\n    get_permissions() quando a regra de negócio estiver definida.\n    Endpoints personalizados",
+        "detail": "backend.api.views.Emprestimo",
+        "documentation": {}
+    },
+    {
+        "label": "DIAS_RENOVACAO",
+        "kind": 5,
+        "importPath": "backend.api.views.Emprestimo",
+        "description": "backend.api.views.Emprestimo",
+        "peekOfCode": "DIAS_RENOVACAO = 7\n# --------------------------------------------------------------------------- #\n#  Module-level helpers                                                        #\n# --------------------------------------------------------------------------- #\ndef _get_associado(user) -> Associado:\n    \"\"\"\n    Retorna o Associado vinculado ao usuário ou lança ValidationError.\n    Tenta o accessor reverso do OneToOneField antes de fazer uma query extra.\n    \"\"\"\n    try:",
         "detail": "backend.api.views.Emprestimo",
         "documentation": {}
     },
@@ -1586,7 +1645,7 @@
         "kind": 6,
         "importPath": "backend.api.views.Livro",
         "description": "backend.api.views.Livro",
-        "peekOfCode": "class LivroViewSet(viewsets.ModelViewSet):\n    \"\"\"\n        ViewSet para entidade `Livro`.\n        Regras de Permissões:\n            Usuários/Associados         GET / list / verificar\n            Gerente++Administrador      POST / PATCH / UPDATE / DELETE\n    \"\"\"\n    queryset = Livro.objects.all().order_by(\"titulo\")\n    serializer_class = LivroSerializer\n    filter_backends = [",
+        "peekOfCode": "class LivroViewSet(viewsets.ModelViewSet):\n    \"\"\"\n    ViewSet para entidade `Livro`.\n    Permissões\n    ----------\n    Usuários autenticados           GET / list / retrieve / verificar / diagnostico\n    Gerente / Administrador         POST / PATCH / PUT / DELETE\n    Qualquer um (AllowAny)          GET diagnostico\n    \"\"\"\n    queryset = Livro.objects.all().order_by(\"titulo\")",
         "detail": "backend.api.views.Livro",
         "documentation": {}
     },
@@ -1645,6 +1704,24 @@
         "documentation": {}
     },
     {
+        "label": "IsStaff",
+        "kind": 6,
+        "importPath": "backend.api.permissions",
+        "description": "backend.api.permissions",
+        "peekOfCode": "class IsStaff(BasePermission):\n    \"\"\"\n    Allows access only to staff users (gerentes / administradores).\n    Used for write operations on Livro and Emprestimo.\n    \"\"\"\n    message = \"Apenas gerentes e administradores podem realizar esta ação.\"\n    def has_permission(self, request, view):\n        return bool(request.user and request.user.is_authenticated and request.user.is_staff)\nclass IsOwnerOrStaff(BasePermission):\n    \"\"\"",
+        "detail": "backend.api.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsOwnerOrStaff",
+        "kind": 6,
+        "importPath": "backend.api.permissions",
+        "description": "backend.api.permissions",
+        "peekOfCode": "class IsOwnerOrStaff(BasePermission):\n    \"\"\"\n    Object-level permission: allows access if the requesting user is the\n    owner of the Associado profile, or is a staff member.\n    Assumes the object being checked has an `user` attribute (i.e. Associado).\n    \"\"\"\n    message = \"Você não tem permissão para modificar o perfil de outro usuário.\"\n    def has_permission(self, request, view):\n        return bool(request.user and request.user.is_authenticated)\n    def has_object_permission(self, request, view, obj):",
+        "detail": "backend.api.permissions",
+        "documentation": {}
+    },
+    {
         "label": "verificar_consistencia_emprestimo",
         "kind": 2,
         "importPath": "backend.api.signals",
@@ -1681,20 +1758,20 @@
         "documentation": {}
     },
     {
-        "label": "LOGGING",
-        "kind": 5,
-        "importPath": "backend.core.settings",
-        "description": "backend.core.settings",
-        "peekOfCode": "LOGGING = {\n    'version': 1,\n    'disable_existing_loggers': False,\n    'formatters': {\n        'verbose': {\n            'format': '[{asctime}] {levelname} <{module}> \\'{message}\\'',\n            'style': '{',\n        },\n        'simple': {\n            'format': '[{asctime}] {levelname} {message}',",
-        "detail": "backend.core.settings",
-        "documentation": {}
-    },
-    {
         "label": "BASE_DIR",
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n#   chave secreta para o token de autenticação\n#   @ver `.env`\nSECRET_KEY = os.environ.get(\"DJANGO_SECRET_KEY\", \"dev-secret-key\")\n#   modo de desenvolvimento\nDEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n#   configuração do logging\nLOGGING = {\n    \"version\": 1,\n    \"disable_existing_loggers\": False,\n    \"formatters\": {\n        # Human-readable for local development\n        \"verbose\": {\n            \"format\": \"[{asctime}] {levelname} {name} — {message}\",\n            \"style\": \"{\",",
+        "detail": "backend.core.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LOGGING",
+        "kind": 5,
+        "importPath": "backend.core.settings",
+        "description": "backend.core.settings",
+        "peekOfCode": "LOGGING = {\n    \"version\": 1,\n    \"disable_existing_loggers\": False,\n    \"formatters\": {\n        # Human-readable for local development\n        \"verbose\": {\n            \"format\": \"[{asctime}] {levelname} {name} — {message}\",\n            \"style\": \"{\",\n        },\n        # Structured JSON for production / log-aggregation (Datadog, CloudWatch, Loki…)",
         "detail": "backend.core.settings",
         "documentation": {}
     },

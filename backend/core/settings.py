@@ -15,45 +15,68 @@ from datetime import timedelta
 import os
 import dj_database_url
 
+#   diretório base do backend
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 #   configuração do logging
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '[{asctime}] {levelname} <{module}> \'{message}\'',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+
+    "formatters": {
+        # Human-readable for local development
+        "verbose": {
+            "format": "[{asctime}] {levelname} {name} — {message}",
+            "style": "{",
         },
-        'simple': {
-            'format': '[{asctime}] {levelname} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
+        # Structured JSON for production / log-aggregation (Datadog, CloudWatch, Loki…)
+        "json": {
+            "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
+            "fmt": "%(asctime)s %(levelname)s %(name)s %(message)s",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': True,
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            # Swap to "json" in production via an env-var check if desired:
+            # "formatter": "json" if not DEBUG else "verbose",
+            "formatter": "verbose",
         },
-        'api': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': False,
+        "audit_file": {
+            # Dedicated rotating file for audit entries only.
+            # In containerised deployments you can remove this and rely solely
+            # on the console handler piped to your log-aggregator.
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": BASE_DIR / "logs" / "audit.log",
+            "maxBytes": 10 * 1024 * 1024,  # 10 MB
+            "backupCount": 5,
+            "formatter": "json",
+        },
+    },
+
+    "loggers": {
+        # Catch-all for your application
+        "api": {
+            "handlers": ["console"],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+        # Audit trail — goes to both console and the dedicated file
+        "api.audit": {
+            "handlers": ["console", "audit_file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        # Django internals — warnings and above only
+        "django": {
+            "handlers": ["console"],
+            "level": "WARNING",
         },
     },
 }
 
-
-#   diretório base do backend
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 #   chave secreta para o token de autenticação
 #   @ver `.env`

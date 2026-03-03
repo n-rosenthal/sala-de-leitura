@@ -107,10 +107,7 @@ class DiagnosticoView(APIView):
                 emprestimos__isnull=False
             ).distinct().count()
         except:
-            # Fallback para o nome padrão se o related_name não estiver definido
-            stats['com_emprestimos'] = Associado.objects.filter(
-                emprestimo__isnull=False
-            ).distinct().count()
+            stats['com_emprestimos'] = 0
         
         return stats
     

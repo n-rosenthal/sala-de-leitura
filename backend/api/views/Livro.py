@@ -1,195 +1,235 @@
 """
     `backend/api/views/Livro.py`
-    
-    ViewSet para entidade `Livro`.
-    
-    Regras de Permissões:
-        Usuários/Associados         GET / list / verificar
-        Gerente++Administrador      POST / PATCH / UPDATE / DELETE
+
+    ViewSet para o modelo `Livro`.
+
+    @version: 3.0
 """
-#   Framework
+
 from rest_framework import viewsets, filters, status
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
+
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticated
 
-
-#   Modelo e serializer para `Livro`
-from ..models import Livro
+from ..models import Emprestimo, Livro
 from ..serializers import LivroSerializer
+from ..permissions import IsStaff
+from ..utils import generate_diff
+from ..services.audit_log import audit_log
 
-#   serviço de auditoria (logging)
-from ..services.audit_service import AuditService
-from ..utils.diff import generate_diff
 
 class LivroViewSet(viewsets.ModelViewSet):
     """
-        ViewSet para entidade `Livro`.
-        
-        Regras de Permissões:
-            Usuários/Associados         GET / list / verificar
-            Gerente++Administrador      POST / PATCH / UPDATE / DELETE
+    ViewSet para entidade `Livro`.
+
+    Permissões
+    ----------
+    Usuários autenticados           GET / list / retrieve / verificar / diagnostico
+    Gerente / Administrador         POST / PATCH / PUT / DELETE
+    Qualquer um (AllowAny)          GET diagnostico
     """
+
     queryset = Livro.objects.all().order_by("titulo")
     serializer_class = LivroSerializer
 
-    filter_backends = [
-        DjangoFilterBackend,
-        filters.SearchFilter,
-        filters.OrderingFilter,
-    ]
-
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ["status"]
     search_fields = ["titulo", "autor"]
     ordering_fields = ["titulo", "autor", "ano"]
     ordering = ["titulo"]
 
+    # ---------------------------------------------------------------------- #
+    #  Permissions                                                             #
+    # ---------------------------------------------------------------------- #
+
     def get_permissions(self):
-        """
-        Define as permissões para cada ação do viewset.
-
-        Se a ação for criar, atualizar, atualizar parcialmente ou devolver um livro,
-        verifica se o usuário autenticado é um gerente (staff).
-
-        Caso contrário, verifica se o usuário autenticado pode fazer a ação.
-
-        :return: Uma lista de permissões necessárias para a ação.
-        :rtype: list[rest_framework.permissions.BasePermission]
-        """
         if self.action in ["create", "update", "partial_update", "destroy"]:
             return [IsAuthenticated(), IsStaff()]
+        if self.action == "diagnostico":
+            return [AllowAny()]
         return [IsAuthenticated()]
-    
+
+    # ---------------------------------------------------------------------- #
+    #  Perform overrides                                                       #
+    # ---------------------------------------------------------------------- #
+
     def perform_create(self, serializer):
-        """
-        Cria um novo `Livro` com base nos dados validados no serializer.
-        
-        Salva as alterações e registra as mudanças no log de ações do sistema.
-        
-        :param serializer: Serializer com os dados validados para criar o `Livro`
-        :type serializer: LivroSerializer
-        :return: O `Livro` criado
-        :rtype: Livro
-        """
         instance = serializer.save()
-        AuditService.log(
+        audit_log(
+            action="CREATE",
+            resource_type="livro",
+            resource_id=instance.id,
             user=self.request.user,
-            action='CREATE',
-            success=True,
-            message='Livro criado com sucesso',
-            resource_type='livro',
-            resource_id=instance.id
+            request=self.request,
+            message=f"Livro criado: '{instance.titulo}'",
         )
-    
+
     def perform_update(self, serializer):
-        """
-        Atualiza um `Livro` com base nos dados validados no serializer.
-
-        Salva as alterações e registra as mudanças no log de ações do sistema.
-
-        :param serializer: Serializer com os dados validados para atualizar o `Livro`
-        :type serializer: LivroSerializer
-        :return: O `Livro` atualizado
-        :rtype: Livro
-        """
         old_instance = self.get_object()
         instance = serializer.save()
-        
-        
+
         diff = generate_diff(
             old_instance,
             serializer.validated_data,
-            ["titulo", "autor", "ano", "status"]    
+            ["titulo", "autor", "ano", "status"],
         )
-        
-        #   somente salvar log se houver mudanças
+
         if diff:
-            AuditService.log(
-                user=self.request.user,
+            audit_log(
                 action="UPDATE",
                 resource_type="livro",
                 resource_id=instance.id,
-                diff=diff,
+                user=self.request.user,
                 request=self.request,
+                message=f"Livro atualizado: '{instance.titulo}'",
+                diff=diff,
             )
-    
+
     def perform_destroy(self, instance):
-        livro_data = {
-            'id': instance.id,
-            'titulo': instance.titulo,
-            'autor': instance.autor
-        }
-        
-        AuditService.log(
-            user=self.request.user,
-            action='DELETE',
-            success=True,
-            message='Livro excluído com sucesso',
-            resource_type='livro',
+        audit_log(
+            action="DELETE",
+            resource_type="livro",
             resource_id=instance.id,
+            user=self.request.user,
+            request=self.request,
+            message=f"Livro excluído: '{instance.titulo}' (autor: {instance.autor})",
         )
-        
         instance.delete()
-    
-    @action(
-        detail=False,
-        methods=["get"],
-        url_path="disponiveis",
-    )
+
+    # ---------------------------------------------------------------------- #
+    #  Custom actions — list                                                   #
+    # ---------------------------------------------------------------------- #
+
+    @action(detail=False, methods=["get"], url_path="disponiveis")
     def disponiveis(self, request):
-        """
-        Retorna apenas livros disponíveis para empréstimo.
-        """
-        queryset = self.filter_queryset(
-            self.get_queryset().filter(
-                status=Livro.Status.DISPONIVEL
-            )
-        )
+        """Livros disponíveis para empréstimo."""
+        return self._status_list(request, Livro.Status.DISPONIVEL)
 
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
-
+    @action(detail=False, methods=["get"], url_path="emprestados")
+    def emprestados(self, request):
+        """Livros atualmente emprestados."""
+        return self._status_list(request, Livro.Status.EMPRESTADO)
 
     @action(
         detail=False,
         methods=["get"],
-        url_path="emprestados",
+        url_path="diagnostico",
+        url_name="diagnostico",
     )
-    def emprestados(self, request):
+    def diagnostico(self, request):
         """
-        Retorna livros atualmente emprestados.
+        Agrupa todos os livros por título, mostrando cópias e status.
+        Público — não requer autenticação.
+
+        GET /api/livros/diagnostico/
         """
-        queryset = self.filter_queryset(
-            self.get_queryset().filter(
-                status=Livro.Status.EMPRESTADO
+        try:
+            livros = Livro.objects.all().order_by("titulo", "id")
+
+            result: dict = {}
+            for livro in livros:
+                entry = result.setdefault(livro.titulo, {
+                    "total_copias": 0,
+                    "copias_disponiveis": 0,
+                    "ides": [],
+                })
+                entry["ides"].append({"id": livro.id, "status": livro.status})
+                entry["total_copias"] += 1
+                if livro.status == Livro.Status.DISPONIVEL:
+                    entry["copias_disponiveis"] += 1
+
+            return Response(
+                {
+                    "status": "success",
+                    "total_titulos": len(result),
+                    "total_copias": livros.count(),
+                    "dados": result,
+                },
+                status=status.HTTP_200_OK,
             )
-        )
 
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+        except Exception as exc:  # noqa: BLE001
+            return Response(
+                {"status": "error", "message": str(exc)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
 
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
-    
-    @action(detail=True, methods=['get'])
+    # ---------------------------------------------------------------------- #
+    #  Custom actions — detail                                                 #
+    # ---------------------------------------------------------------------- #
+
+    @action(detail=True, methods=["get"])
     def verificar(self, request, pk=None):
         """
-        Verifica se o livro pode ser emprestado e sua consistência.
-        """
+        Verifica disponibilidade e consistência de um livro específico.
 
-        
+        GET /api/livros/{id}/verificar/
+        """
+        livro = self.get_object()
+
+        emprestimo_ativo = (
+            Emprestimo.objects
+            .filter(livro=livro, data_devolucao__isnull=True)
+            .select_related("associado__user")
+            .first()
+        )
+
+        consistencia = _verificar_consistencia(livro, emprestimo_ativo)
+
         return Response({
-            'pode_ser_emprestado': True,
-            'status': Livro.Status.DISPONIVEL,
-            'status_display': "DISPONIVEL",
-            'emprestimo_ativo': None,
-            'consistencia': None
+            "pode_ser_emprestado": livro.status == Livro.Status.DISPONIVEL,
+            "status": livro.status,
+            "status_display": livro.get_status_display(),
+            "emprestimo_ativo": (
+                {
+                    "id": emprestimo_ativo.id,
+                    "associado": emprestimo_ativo.associado.user.get_full_name()
+                        or emprestimo_ativo.associado.user.username,
+                    "data_emprestimo": emprestimo_ativo.data_emprestimo,
+                    "data_prevista": emprestimo_ativo.data_prevista,
+                }
+                if emprestimo_ativo else None
+            ),
+            "consistencia": consistencia,
         })
+
+    # ---------------------------------------------------------------------- #
+    #  Private helpers                                                         #
+    # ---------------------------------------------------------------------- #
+
+    def _status_list(self, request, livro_status):
+        """Filtra por status, respeita filtros/busca e pagina o resultado."""
+        queryset = self.filter_queryset(
+            self.get_queryset().filter(status=livro_status)
+        )
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            return self.get_paginated_response(self.get_serializer(page, many=True).data)
+        return Response(self.get_serializer(queryset, many=True).data)
+
+
+# --------------------------------------------------------------------------- #
+#  Module-level helpers                                                        #
+# --------------------------------------------------------------------------- #
+
+def _verificar_consistencia(livro: Livro, emprestimo_ativo) -> dict:
+    """
+    Detecta inconsistências entre o status do livro e seus empréstimos.
+
+    Returns a dict with `ok: bool` and an optional `problemas` list.
+    """
+    problemas = []
+
+    if livro.status == Livro.Status.DISPONIVEL and emprestimo_ativo:
+        problemas.append(
+            "Livro marcado como DISPONÍVEL mas possui empréstimo ativo sem devolução."
+        )
+
+    if livro.status == Livro.Status.EMPRESTADO and not emprestimo_ativo:
+        problemas.append(
+            "Livro marcado como EMPRESTADO mas não há empréstimo ativo registrado."
+        )
+
+    return {"ok": not problemas, "problemas": problemas}
