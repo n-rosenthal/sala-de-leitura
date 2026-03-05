@@ -8,6 +8,54 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -40,208 +88,6 @@
         "description": "django.core.management",
         "isExtraImport": true,
         "detail": "django.core.management",
-        "documentation": {}
-    },
-    {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
-        "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
-        "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "BaseCommand",
-        "importPath": "django.core.management.base",
-        "description": "django.core.management.base",
-        "isExtraImport": true,
-        "detail": "django.core.management.base",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Emprestimo",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Emprestimo",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Associado",
-        "importPath": "api.models",
-        "description": "api.models",
-        "isExtraImport": true,
-        "detail": "api.models",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "logging",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
-        "documentation": {}
-    },
-    {
-        "label": "MiddlewareMixin",
-        "importPath": "django.utils.deprecation",
-        "description": "django.utils.deprecation",
-        "isExtraImport": true,
-        "detail": "django.utils.deprecation",
-        "documentation": {}
-    },
-    {
-        "label": "MiddlewareMixin",
-        "importPath": "django.utils.deprecation",
-        "description": "django.utils.deprecation",
-        "isExtraImport": true,
-        "detail": "django.utils.deprecation",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "RefreshToken",
-        "importPath": "rest_framework_simplejwt.tokens",
-        "description": "rest_framework_simplejwt.tokens",
-        "isExtraImport": true,
-        "detail": "rest_framework_simplejwt.tokens",
-        "documentation": {}
-    },
-    {
-        "label": "JsonResponse",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
-        "documentation": {}
-    },
-    {
-        "label": "HttpRequest",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
         "documentation": {}
     },
     {
@@ -888,6 +734,15 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
         "label": "uuid",
         "kind": 6,
         "isExtraImport": true,
@@ -902,6 +757,14 @@
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -1030,6 +893,30 @@
         "description": "rest_framework.views",
         "isExtraImport": true,
         "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "Livro",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Emprestimo",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Associado",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
         "documentation": {}
     },
     {
@@ -1201,6 +1088,14 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
         "label": "dj_database_url",
         "kind": 6,
         "isExtraImport": true,
@@ -1222,7 +1117,7 @@
         "kind": 6,
         "importPath": "backend.api.authentication.cookie_jwt",
         "description": "backend.api.authentication.cookie_jwt",
-        "peekOfCode": "class CookieJWTAuthentication(JWTAuthentication):\n    \"\"\"\n    Autenticação JWT usando cookies HTTP-only.\n    \"\"\"\n    def authenticate(self, request):\n        raw_token = request.COOKIES.get(\"access_token\")\n        if raw_token is None:\n            return None\n        validated_token = self.get_validated_token(raw_token)\n        return self.get_user(validated_token), validated_token",
+        "peekOfCode": "class CookieJWTAuthentication(JWTAuthentication):\n    \"\"\"Reads the JWT access token from an HttpOnly cookie instead of the Authorization header.\"\"\"\n    def authenticate(self, request):\n        cookie_name = getattr(settings, \"SIMPLE_JWT\", {}).get(\"AUTH_COOKIE\", \"access_token\")\n        raw_token = request.COOKIES.get(cookie_name)\n        if raw_token is None:\n            return None  # No cookie → unauthenticated (not an error)\n        validated_token = self.get_validated_token(raw_token)\n        return self.get_user(validated_token), validated_token",
         "detail": "backend.api.authentication.cookie_jwt",
         "documentation": {}
     },
@@ -1233,78 +1128,6 @@
         "description": "backend.api.fixtures.load_fixtures",
         "peekOfCode": "def main():\n    print(\"Carregando fixtures...\")\n    fixtures = [\n        'users.json',\n        'associados.json', \n        'livros.json',\n        'livros2.json',\n        'emprestimos.json'\n    ]\n    for fixture in fixtures:",
         "detail": "backend.api.fixtures.load_fixtures",
-        "documentation": {}
-    },
-    {
-        "label": "Command",
-        "kind": 6,
-        "importPath": "backend.api.management.commands.corrigir_inconsistencias",
-        "description": "backend.api.management.commands.corrigir_inconsistencias",
-        "peekOfCode": "class Command(BaseCommand):\n    help = 'Corrige inconsistências entre status de livros e empréstimos ativos'\n    def handle(self, *args, **options):\n        livros = Livro.objects.all()\n        total_corrigidos = 0\n        for livro in livros:\n            emprestimos_ativos = Emprestimo.objects.filter(\n                livro=livro,\n                data_devolucao__isnull=True\n            ).count()",
-        "detail": "backend.api.management.commands.corrigir_inconsistencias",
-        "documentation": {}
-    },
-    {
-        "label": "Command",
-        "kind": 6,
-        "importPath": "backend.api.management.commands.verificar_livros",
-        "description": "backend.api.management.commands.verificar_livros",
-        "peekOfCode": "class Command(BaseCommand):\n    help = 'Verifica a consistência dos status dos livros'\n    def handle(self, *args, **options):\n        \"\"\"\n        Verifica a consistência dos status dos livros.\n        Mostra uma lista de inconsistências encontradas nos livros.\n        Exemplo de saída:\n        (!!)  Encontradas 2 inconsistências em 10 livros:\n            - Livro 1: Status DISPONIVEL mas tem 1 empréstimo ativo\n            - Livro 2: Status EMPRESTADO mas não tem empréstimos ativos",
-        "detail": "backend.api.management.commands.verificar_livros",
-        "documentation": {}
-    },
-    {
-        "label": "Command",
-        "kind": 6,
-        "importPath": "backend.api.management.commands.view_logs",
-        "description": "backend.api.management.commands.view_logs",
-        "peekOfCode": "class Command(BaseCommand):\n    help = 'Exibe os logs recentes da aplicação'\n    def add_arguments(self, parser):\n        parser.add_argument(\n            '--lines',\n            type=int,\n            default=50,\n            help='Número de linhas a exibir (padrão: 50)'\n        )\n    def handle(self, *args, **options):",
-        "detail": "backend.api.management.commands.view_logs",
-        "documentation": {}
-    },
-    {
-        "label": "ConsistenciaMiddleware",
-        "kind": 6,
-        "importPath": "backend.api.middleware.consistencia_middleware",
-        "description": "backend.api.middleware.consistencia_middleware",
-        "peekOfCode": "class ConsistenciaMiddleware(MiddlewareMixin):\n    def process_response(self, request, response):\n        # Verifica apenas em modo de desenvolvimento\n        if settings.DEBUG and request.path.startswith('/api/'):\n            # Verifica inconsistências críticas\n            livros_inconsistentes = []\n            # Livros com status EMPRESTADO mas sem empréstimos ativos\n            livros_emprestados = Livro.objects.filter(status=Livro.Status.EMPRESTADO)\n            for livro in livros_emprestados:\n                if not livro.get_emprestimo_ativo():",
-        "detail": "backend.api.middleware.consistencia_middleware",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "backend.api.middleware.consistencia_middleware",
-        "description": "backend.api.middleware.consistencia_middleware",
-        "peekOfCode": "logger = logging.getLogger('api')\nclass ConsistenciaMiddleware(MiddlewareMixin):\n    def process_response(self, request, response):\n        # Verifica apenas em modo de desenvolvimento\n        if settings.DEBUG and request.path.startswith('/api/'):\n            # Verifica inconsistências críticas\n            livros_inconsistentes = []\n            # Livros com status EMPRESTADO mas sem empréstimos ativos\n            livros_emprestados = Livro.objects.filter(status=Livro.Status.EMPRESTADO)\n            for livro in livros_emprestados:",
-        "detail": "backend.api.middleware.consistencia_middleware",
-        "documentation": {}
-    },
-    {
-        "label": "JWTRefreshMiddleware",
-        "kind": 6,
-        "importPath": "backend.api.middleware.jwt_refresh",
-        "description": "backend.api.middleware.jwt_refresh",
-        "peekOfCode": "class JWTRefreshMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        response = self.get_response(request)\n        if response.status_code != 401:\n            return response\n        refresh = request.COOKIES.get(\"refresh_token\")\n        if not refresh:\n            return response",
-        "detail": "backend.api.middleware.jwt_refresh",
-        "documentation": {}
-    },
-    {
-        "label": "AuditLogMiddleware",
-        "kind": 6,
-        "importPath": "backend.api.middleware.logging_middleware",
-        "description": "backend.api.middleware.logging_middleware",
-        "peekOfCode": "class AuditLogMiddleware(MiddlewareMixin):\n    def process_request(self, request):\n        \"\"\"\n        Sets the start time for the request, used for logging purposes.\n        Returns None.\n        \"\"\"\n        request.start_time = time.time()\n        return None\n    def process_response(self, request, response):\n        \"\"\"",
-        "detail": "backend.api.middleware.logging_middleware",
-        "documentation": {}
-    },
-    {
-        "label": "logger",
-        "kind": 5,
-        "importPath": "backend.api.middleware.logging_middleware",
-        "description": "backend.api.middleware.logging_middleware",
-        "peekOfCode": "logger = logging.getLogger('api')\nclass AuditLogMiddleware(MiddlewareMixin):\n    def process_request(self, request):\n        \"\"\"\n        Sets the start time for the request, used for logging purposes.\n        Returns None.\n        \"\"\"\n        request.start_time = time.time()\n        return None\n    def process_response(self, request, response):",
-        "detail": "backend.api.middleware.logging_middleware",
         "documentation": {}
     },
     {
@@ -1762,7 +1585,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n#   configuração do logging\nLOGGING = {\n    \"version\": 1,\n    \"disable_existing_loggers\": False,\n    \"formatters\": {\n        # Human-readable for local development\n        \"verbose\": {\n            \"format\": \"[{asctime}] {levelname} {name} — {message}\",\n            \"style\": \"{\",",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n#   configuração do logging\nLOGGING = {\n    \"version\": 1,\n    \"disable_existing_loggers\": False,\n    \"formatters\": {\n        \"verbose\": {\n            \"format\": \"[{asctime}] {levelname} {name} — {message}\",\n            \"style\": \"{\",\n        },",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1771,7 +1594,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "LOGGING = {\n    \"version\": 1,\n    \"disable_existing_loggers\": False,\n    \"formatters\": {\n        # Human-readable for local development\n        \"verbose\": {\n            \"format\": \"[{asctime}] {levelname} {name} — {message}\",\n            \"style\": \"{\",\n        },\n        # Structured JSON for production / log-aggregation (Datadog, CloudWatch, Loki…)",
+        "peekOfCode": "LOGGING = {\n    \"version\": 1,\n    \"disable_existing_loggers\": False,\n    \"formatters\": {\n        \"verbose\": {\n            \"format\": \"[{asctime}] {levelname} {name} — {message}\",\n            \"style\": \"{\",\n        },\n        \"json\": {\n            \"()\": \"pythonjsonlogger.jsonlogger.JsonFormatter\",",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1780,7 +1603,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "SECRET_KEY = os.environ.get(\"DJANGO_SECRET_KEY\", \"dev-secret-key\")\n#   modo de desenvolvimento\nDEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\"",
+        "peekOfCode": "SECRET_KEY = os.environ.get(\"DJANGO_SECRET_KEY\", \"dev-secret-key\")\nDEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\",\n]\nINSTALLED_APPS = [",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1789,7 +1612,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "DEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\n#   host permitido\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\"\n]\n#   aplicativos instalados",
+        "peekOfCode": "DEBUG = os.environ.get(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\",\n]\nINSTALLED_APPS = [\n    \"django.contrib.admin\",",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1798,7 +1621,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\"\n]\n#   aplicativos instalados\nINSTALLED_APPS = [\n    #   base do django/backend",
+        "peekOfCode": "ALLOWED_HOSTS = [\n    \"localhost\",\n    \"127.0.0.1\",\n    \"sala-de-leitura-backend.fly.dev\",\n    \"*.fly.dev\",\n    \"backend\",\n]\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1807,7 +1630,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    #   base do django/backend\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    #   headers para o frontend\n    \"corsheaders\",",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"corsheaders\",\n    \"rest_framework\",\n    # ✅ Required for JWT token blacklisting (BLACKLIST_AFTER_ROTATION = True)",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1816,7 +1639,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    #   Classe de autenticação customizada para lidar com cookies HTTPS\n    \"DEFAULT_AUTHENTICATION_CLASSES\": (\n        \"api.authentication.cookie_jwt.CookieJWTAuthentication\",\n    ),\n    \"DEFAULT_PERMISSION_CLASSES\": (\n        \"rest_framework.permissions.IsAuthenticated\",\n    ),\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.PageNumberPagination\",\n    \"PAGE_SIZE\": 10,",
+        "peekOfCode": "REST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": (\n        # Reads the JWT from an HttpOnly cookie instead of the Authorization header.\n        # This class must exist at: api/authentication/cookie_jwt.py\n        \"api.authentication.cookie_jwt.CookieJWTAuthentication\",\n    ),\n    \"DEFAULT_PERMISSION_CLASSES\": (\n        \"rest_framework.permissions.IsAuthenticated\",\n    ),\n    \"DEFAULT_PAGINATION_CLASS\": \"rest_framework.pagination.PageNumberPagination\",",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1825,7 +1648,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "SIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=15),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=7),\n    \"ROTATE_REFRESH_TOKENS\": True,\n    \"BLACKLIST_AFTER_ROTATION\": True,\n}\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    # CORS deve vir ANTES de CommonMiddleware",
+        "peekOfCode": "SIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=15),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=7),\n    \"ROTATE_REFRESH_TOKENS\": True,\n    \"BLACKLIST_AFTER_ROTATION\": True,\n    # ✅ Cookie names your CookieJWTAuthentication class will read from\n    \"AUTH_COOKIE\": \"access_token\",\n    \"AUTH_COOKIE_REFRESH\": \"refresh_token\",\n    \"AUTH_COOKIE_SECURE\": not DEBUG,    # HTTPS only in production\n    \"AUTH_COOKIE_HTTP_ONLY\": True,      # JS cannot read the cookie",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1843,7 +1666,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\n#   Define as origens permitidas\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",  #   domínio fantasia\n    \"https://*.fly.dev\",            #   domínio produção (testes)\n]\n#   Cross-Site Request Forgery (CSRF)\nCSRF_TRUSTED_ORIGINS = [\n    \"http://localhost:3000\",",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",\n    \"https://*.fly.dev\",\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",\n    \"https://*.fly.dev\",",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1852,7 +1675,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",  #   domínio fantasia\n    \"https://*.fly.dev\",            #   domínio produção (testes)\n]\n#   Cross-Site Request Forgery (CSRF)\nCSRF_TRUSTED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",\n    \"https://*.fly.dev\",",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",\n    \"https://*.fly.dev\",\n]\nCSRF_TRUSTED_ORIGINS = [\n    \"http://localhost:3000\",\n    \"https://sala-de-leitura.com\",\n    \"https://*.fly.dev\",\n]",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1924,7 +1747,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "WSGI_APPLICATION = \"core.wsgi.application\"\nDATABASE_URL = os.environ.get(\"DATABASE_URL\")\nif DATABASE_URL:\n    # Produção (Fly, Railway, etc)\n    DATABASES = {\n        \"default\": dj_database_url.parse(\n            DATABASE_URL,\n            conn_max_age=600,\n            ssl_require=True,\n        )",
+        "peekOfCode": "WSGI_APPLICATION = \"core.wsgi.application\"\nDATABASE_URL = os.environ.get(\"DATABASE_URL\")\nif DATABASE_URL:\n    DATABASES = {\n        \"default\": dj_database_url.parse(\n            DATABASE_URL,\n            conn_max_age=600,\n            ssl_require=True,\n        )\n    }",
         "detail": "backend.core.settings",
         "documentation": {}
     },
@@ -1933,7 +1756,7 @@
         "kind": 5,
         "importPath": "backend.core.settings",
         "description": "backend.core.settings",
-        "peekOfCode": "DATABASE_URL = os.environ.get(\"DATABASE_URL\")\nif DATABASE_URL:\n    # Produção (Fly, Railway, etc)\n    DATABASES = {\n        \"default\": dj_database_url.parse(\n            DATABASE_URL,\n            conn_max_age=600,\n            ssl_require=True,\n        )\n    }",
+        "peekOfCode": "DATABASE_URL = os.environ.get(\"DATABASE_URL\")\nif DATABASE_URL:\n    DATABASES = {\n        \"default\": dj_database_url.parse(\n            DATABASE_URL,\n            conn_max_age=600,\n            ssl_require=True,\n        )\n    }\nelse:",
         "detail": "backend.core.settings",
         "documentation": {}
     },

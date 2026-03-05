@@ -25,12 +25,10 @@ LOGGING = {
     "disable_existing_loggers": False,
 
     "formatters": {
-        # Human-readable for local development
         "verbose": {
             "format": "[{asctime}] {levelname} {name} — {message}",
             "style": "{",
         },
-        # Structured JSON for production / log-aggregation (Datadog, CloudWatch, Loki…)
         "json": {
             "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
             "fmt": "%(asctime)s %(levelname)s %(name)s %(message)s",
@@ -40,14 +38,9 @@ LOGGING = {
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
-            # Swap to "json" in production via an env-var check if desired:
-            # "formatter": "json" if not DEBUG else "verbose",
             "formatter": "verbose",
         },
         "audit_file": {
-            # Dedicated rotating file for audit entries only.
-            # In containerised deployments you can remove this and rely solely
-            # on the console handler piped to your log-aggregator.
             "class": "logging.handlers.RotatingFileHandler",
             "filename": BASE_DIR / "logs" / "audit.log",
             "maxBytes": 10 * 1024 * 1024,  # 10 MB
@@ -57,19 +50,16 @@ LOGGING = {
     },
 
     "loggers": {
-        # Catch-all for your application
         "api": {
             "handlers": ["console"],
             "level": "DEBUG",
             "propagate": False,
         },
-        # Audit trail — goes to both console and the dedicated file
         "api.audit": {
             "handlers": ["console", "audit_file"],
             "level": "INFO",
             "propagate": False,
         },
-        # Django internals — warnings and above only
         "django": {
             "handlers": ["console"],
             "level": "WARNING",
@@ -78,53 +68,41 @@ LOGGING = {
 }
 
 
-#   chave secreta para o token de autenticação
-#   @ver `.env`
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-secret-key")
-
-#   modo de desenvolvimento
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
 
-#   host permitido
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "sala-de-leitura-backend.fly.dev",
     "*.fly.dev",
-    "backend"
+    "backend",
 ]
 
-#   aplicativos instalados
 INSTALLED_APPS = [
-    #   base do django/backend
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
-    #   headers para o frontend
     "corsheaders",
-
-    #   framework REST para a API do backend
     "rest_framework",
-    
-    #   API para o backend (sala-de-leitura)
+    # ✅ Required for JWT token blacklisting (BLACKLIST_AFTER_ROTATION = True)
+    "rest_framework_simplejwt.token_blacklist",
     "api",
 ]
 
-#   framework REST
+#   ✅ DRF now knows to authenticate via our cookie-based JWT class
 REST_FRAMEWORK = {
-    #   Classe de autenticação customizada para lidar com cookies HTTPS
     "DEFAULT_AUTHENTICATION_CLASSES": (
+        # Reads the JWT from an HttpOnly cookie instead of the Authorization header.
+        # This class must exist at: api/authentication/cookie_jwt.py
         "api.authentication.cookie_jwt.CookieJWTAuthentication",
     ),
-    
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
     ),
-    
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }
@@ -135,33 +113,32 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
+    # ✅ Cookie names your CookieJWTAuthentication class will read from
+    "AUTH_COOKIE": "access_token",
+    "AUTH_COOKIE_REFRESH": "refresh_token",
+    "AUTH_COOKIE_SECURE": not DEBUG,    # HTTPS only in production
+    "AUTH_COOKIE_HTTP_ONLY": True,      # JS cannot read the cookie
+    "AUTH_COOKIE_SAMESITE": "Lax",
 }
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-
     # CORS deve vir ANTES de CommonMiddleware
     "corsheaders.middleware.CorsMiddleware",
-
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-
 ]
 
-#  Cross-Origin Resource Sharing (CORS)
 CORS_ALLOW_CREDENTIALS = True
-
-#   Define as origens permitidas
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://sala-de-leitura.com",  #   domínio fantasia
-    "https://*.fly.dev",            #   domínio produção (testes)
+    "https://sala-de-leitura.com",
+    "https://*.fly.dev",
 ]
 
-#   Cross-Site Request Forgery (CSRF)
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "https://sala-de-leitura.com",
@@ -170,8 +147,6 @@ CSRF_TRUSTED_ORIGINS = [
 
 SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
-
-
 SESSION_COOKIE_SAMESITE = "Lax"
 CSRF_COOKIE_SAMESITE = "Lax"
 
@@ -198,7 +173,6 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
-    # Produção (Fly, Railway, etc)
     DATABASES = {
         "default": dj_database_url.parse(
             DATABASE_URL,
@@ -207,7 +181,6 @@ if DATABASE_URL:
         )
     }
 else:
-    # Desenvolvimento local (docker-compose)
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -225,5 +198,4 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
