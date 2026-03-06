@@ -1,70 +1,84 @@
-// frontend/services/logger.ts
+/**
+ * `services/logger.ts` — logger estruturado
+ *
+ * Emite logs formatados com timestamp, nível e contexto opcional.
+ * Em produção, suprime mensagens DEBUG.
+ * Integrado ao `api.ts` para rastrear erros de rede e ciclos de refresh.
+ */
+
+// Tipos
 
 const LOG_LEVELS = {
-    ERROR: 'error',
-    WARN: 'warn',
-    INFO: 'info',
-    DEBUG: 'debug',
+    ERROR: "error",
+    WARN: "warn",
+    INFO: "info",
+    DEBUG: "debug",
 } as const;
 
-type LogLevel = typeof LOG_LEVELS[keyof typeof LOG_LEVELS];
+type LogLevel = (typeof LOG_LEVELS)[keyof typeof LOG_LEVELS];
+
+interface LogEntry {
+    timestamp: string;
+    level: string;
+    message: string;
+    data?: unknown;
+}
+
 
 class Logger {
-    /**
-     * Formats a log message according to the given parameters.
-     *
-     * @param {LogLevel} level - The log level of the message.
-     * @param {string} message - The message to log.
-     * @param {*} [data] - Optional data to log with the message.
-     * @returns {string} A formatted log message string.
-     */
-    private formatMessage(level: LogLevel, message: string, data?: any): string {
-        const timestamp = new Date().toISOString();
-        const dataStr = data ? ` | ${JSON.stringify(data)}` : '';
-        return `[${timestamp}] ${level.toUpperCase()}: ${message}${dataStr}`;
-    }
-    
-    /**
-     * Log an info message to the console.
-     * 
-     * @param {string} message - The message to log.
-     * @param {*} [data] - Optional data to log with the message.
-     */
-    public info(message: string, data?: any) {
-        console.info(this.formatMessage(LOG_LEVELS.INFO, message, data));
+    private readonly isDev = process.env.NODE_ENV === "development";
+
+    private format(level: LogLevel, message: string, data?: unknown): LogEntry {
+        return {
+            timestamp: new Date().toISOString(),
+            level: level.toUpperCase(),
+            message,
+            ...(data !== undefined && { data }),
+        };
     }
 
-    /**
-     * Log an error message to the console.
-     * 
-     * @param {string} message - The message to log.
-     * @param {*} [data] - Optional data to log with the message.
-     */
-    public error(message: string, data?: any) {
-        console.error(this.formatMessage(LOG_LEVELS.ERROR, message, data));
+    private print(
+        level: LogLevel,
+        entry: LogEntry,
+        consoleFn: (...args: unknown[]) => void
+    ): void {
+        const prefix = `[${entry.timestamp}] ${entry.level}: ${entry.message}`;
+        entry.data !== undefined ? consoleFn(prefix, entry.data) : consoleFn(prefix);
     }
 
-    /**
-     * Log a warning message to the console.
-     * 
-     * @param {string} message - The message to log.
-     * @param {*} [data] - Optional data to log with the message.
-     */
-    public warn(message: string, data?: any) {
-        console.warn(this.formatMessage(LOG_LEVELS.WARN, message, data));
+    info(message: string, data?: unknown): void {
+        this.print(
+            LOG_LEVELS.INFO,
+            this.format(LOG_LEVELS.INFO, message, data),
+            console.info.bind(console)
+        );
     }
 
-    /**
-     * Log a debug message, but only in development mode.
-     * 
-     * @param {string} message - The message to log.
-     * @param {*} [data] - Optional data to log with the message.
-     */
-    public debug(message: string, data?: any) {
-        if (process.env.NODE_ENV === 'development') {
-            console.debug(this.formatMessage(LOG_LEVELS.DEBUG, message, data));
-        }
+    error(message: string, data?: unknown): void {
+        this.print(
+            LOG_LEVELS.ERROR,
+            this.format(LOG_LEVELS.ERROR, message, data),
+            console.error.bind(console)
+        );
     }
-}
+
+    warn(message: string, data?: unknown): void {
+        this.print(
+            LOG_LEVELS.WARN,
+            this.format(LOG_LEVELS.WARN, message, data),
+            console.warn.bind(console)
+        );
+    }
+
+    /** Emitido apenas em desenvolvimento (`NODE_ENV === "development"`). */
+    debug(message: string, data?: unknown): void {
+        if (!this.isDev) return;
+        this.print(
+            LOG_LEVELS.DEBUG,
+            this.format(LOG_LEVELS.DEBUG, message, data),
+            console.debug.bind(console)
+        );
+    }
+} 
 
 export const logger = new Logger();
