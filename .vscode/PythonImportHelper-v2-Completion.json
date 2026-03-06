@@ -56,6 +56,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -574,6 +582,14 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "ValidationError",
         "importPath": "django.core.exceptions",
         "description": "django.core.exceptions",
@@ -646,31 +662,7 @@
         "documentation": {}
     },
     {
-        "label": "viewsets",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "filters",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "status",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
-        "isExtraImport": true,
-        "detail": "rest_framework",
-        "documentation": {}
-    },
-    {
-        "label": "status",
+        "label": "serializers",
         "importPath": "rest_framework",
         "description": "rest_framework",
         "isExtraImport": true,
@@ -702,6 +694,22 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "viewsets",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -723,6 +731,78 @@
         "description": "rest_framework",
         "isExtraImport": true,
         "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "filters",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "Associado",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Associado",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Livro",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Emprestimo",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
+        "documentation": {}
+    },
+    {
+        "label": "Associado",
+        "importPath": "api.models",
+        "description": "api.models",
+        "isExtraImport": true,
+        "detail": "api.models",
         "documentation": {}
     },
     {
@@ -816,6 +896,22 @@
         "documentation": {}
     },
     {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
         "label": "AllowAny",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
@@ -888,6 +984,14 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
         "label": "APIView",
         "importPath": "rest_framework.views",
         "description": "rest_framework.views",
@@ -896,27 +1000,51 @@
         "documentation": {}
     },
     {
-        "label": "Livro",
-        "importPath": "api.models",
-        "description": "api.models",
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
         "isExtraImport": true,
-        "detail": "api.models",
+        "detail": "rest_framework.views",
         "documentation": {}
     },
     {
-        "label": "Emprestimo",
-        "importPath": "api.models",
-        "description": "api.models",
+        "label": "RefreshToken",
+        "importPath": "rest_framework_simplejwt.tokens",
+        "description": "rest_framework_simplejwt.tokens",
         "isExtraImport": true,
-        "detail": "api.models",
+        "detail": "rest_framework_simplejwt.tokens",
         "documentation": {}
     },
     {
-        "label": "Associado",
-        "importPath": "api.models",
-        "description": "api.models",
+        "label": "TokenError",
+        "importPath": "rest_framework_simplejwt.exceptions",
+        "description": "rest_framework_simplejwt.exceptions",
         "isExtraImport": true,
-        "detail": "api.models",
+        "detail": "rest_framework_simplejwt.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "InvalidToken",
+        "importPath": "rest_framework_simplejwt.exceptions",
+        "description": "rest_framework_simplejwt.exceptions",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "LoginSerializer",
+        "importPath": "api.serializers.auth",
+        "description": "api.serializers.auth",
+        "isExtraImport": true,
+        "detail": "api.serializers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "AssociadoAuthSerializer",
+        "importPath": "api.serializers.auth",
+        "description": "api.serializers.auth",
+        "isExtraImport": true,
+        "detail": "api.serializers.auth",
         "documentation": {}
     },
     {
@@ -1032,6 +1160,14 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "DefaultRouter",
         "importPath": "rest_framework.routers",
         "description": "rest_framework.routers",
@@ -1110,6 +1246,38 @@
         "description": "django.core.wsgi",
         "isExtraImport": true,
         "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "importPath": "api.views.Auth",
+        "description": "api.views.Auth",
+        "isExtraImport": true,
+        "detail": "api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "LogoutView",
+        "importPath": "api.views.Auth",
+        "description": "api.views.Auth",
+        "isExtraImport": true,
+        "detail": "api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "RefreshView",
+        "importPath": "api.views.Auth",
+        "description": "api.views.Auth",
+        "isExtraImport": true,
+        "detail": "api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "MeView",
+        "importPath": "api.views.Auth",
+        "description": "api.views.Auth",
+        "isExtraImport": true,
+        "detail": "api.views.Auth",
         "documentation": {}
     },
     {
@@ -1374,6 +1542,33 @@
         "documentation": {}
     },
     {
+        "label": "LoginSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers.Auth",
+        "description": "backend.api.serializers.Auth",
+        "peekOfCode": "class LoginSerializer(serializers.Serializer):\n    \"\"\"Valida username + password no login.\"\"\"\n    username = serializers.CharField(write_only=True)\n    password = serializers.CharField(write_only=True, style={\"input_type\": \"password\"})\n    def validate(self, data):\n        user = authenticate(\n            request=self.context.get(\"request\"),\n            username=data[\"username\"],\n            password=data[\"password\"],\n        )",
+        "detail": "backend.api.serializers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoUserSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers.Auth",
+        "description": "backend.api.serializers.Auth",
+        "peekOfCode": "class DjangoUserSerializer(serializers.ModelSerializer):\n    \"\"\"Serializa os campos do auth.User aninhado no Associado.\"\"\"\n    class Meta:\n        model = User\n        fields = [\n            \"id\",\n            \"username\",\n            \"email\",\n            \"first_name\",\n            \"last_name\",",
+        "detail": "backend.api.serializers.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "AssociadoAuthSerializer",
+        "kind": 6,
+        "importPath": "backend.api.serializers.Auth",
+        "description": "backend.api.serializers.Auth",
+        "peekOfCode": "class AssociadoAuthSerializer(serializers.ModelSerializer):\n    \"\"\"\n    Serializa o Associado completo para as respostas de autenticação\n    (login e me). Espelha o tipo `Associado` do frontend.\n    \"\"\"\n    user = DjangoUserSerializer(read_only=True)\n    # Properties do modelo expostas explicitamente\n    nome_completo = serializers.CharField(source=\"nome_completo\", read_only=True)\n    email        = serializers.EmailField(source=\"email\", read_only=True)\n    esta_ativo   = serializers.BooleanField(source=\"esta_ativo\", read_only=True)",
+        "detail": "backend.api.serializers.Auth",
+        "documentation": {}
+    },
+    {
         "label": "EmprestimoSerializer",
         "kind": 6,
         "importPath": "backend.api.serializers.Emprestimo",
@@ -1425,6 +1620,51 @@
         "description": "backend.api.views.Associado",
         "peekOfCode": "class AssociadoViewSet(viewsets.ModelViewSet):\n    \"\"\"\n    ViewSet para gerenciar Associados.\n    Permissões\n    ----------\n    create                  AllowAny    (registro público)\n    list / retrieve         IsAuthenticated\n    update / partial_update IsAuthenticated + IsOwnerOrStaff  (ver get_permissions)\n    destroy                 IsAdminUser\n    me / atualizar_me       IsAuthenticated",
         "detail": "backend.api.views.Associado",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "kind": 6,
+        "importPath": "backend.api.views.Auth",
+        "description": "backend.api.views.Auth",
+        "peekOfCode": "class LoginView(APIView):\n    \"\"\"\n    POST /api/auth/login/\n    Autentica o usuário, seta cookies HttpOnly e retorna o Associado.\n    Request body:\n        { \"username\": \"...\", \"password\": \"...\" }\n    Response 200:\n        { \"user\": <Associado> }\n    \"\"\"\n    permission_classes = [AllowAny]",
+        "detail": "backend.api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "LogoutView",
+        "kind": 6,
+        "importPath": "backend.api.views.Auth",
+        "description": "backend.api.views.Auth",
+        "peekOfCode": "class LogoutView(APIView):\n    \"\"\"\n    POST /api/auth/logout/\n    Blacklista o refresh token atual e apaga os cookies.\n    Requer autenticação (cookie de acesso válido).\n    Response 204: No Content\n    \"\"\"\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        refresh_name  = settings.SIMPLE_JWT.get(\"AUTH_COOKIE_REFRESH\", \"refresh_token\")",
+        "detail": "backend.api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "RefreshView",
+        "kind": 6,
+        "importPath": "backend.api.views.Auth",
+        "description": "backend.api.views.Auth",
+        "peekOfCode": "class RefreshView(APIView):\n    \"\"\"\n    POST /api/auth/refresh/\n    Lê o cookie `refresh_token`, emite um novo par de tokens\n    (ROTATE_REFRESH_TOKENS=True) e atualiza os cookies.\n    Não exige autenticação — o access token pode estar expirado.\n    Response 200: {}  (tokens entregues via cookies)\n    \"\"\"\n    permission_classes = [AllowAny]\n    def post(self, request):",
+        "detail": "backend.api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "MeView",
+        "kind": 6,
+        "importPath": "backend.api.views.Auth",
+        "description": "backend.api.views.Auth",
+        "peekOfCode": "class MeView(APIView):\n    \"\"\"\n    GET /api/auth/me/\n    Retorna o Associado do usuário autenticado.\n    Usado pelo AuthContext para restaurar a sessão após F5.\n    Response 200: <Associado>\n    \"\"\"\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        associado = _get_associado(request.user)",
+        "detail": "backend.api.views.Auth",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.api.views.Auth",
+        "description": "backend.api.views.Auth",
+        "peekOfCode": "logger = logging.getLogger(\"api.auth\")\n# ─── Helpers ──────────────────────────────────────────────────────────────────\ndef _get_cookie_settings(secure: bool) -> dict:\n    \"\"\"Retorna os atributos comuns para set_cookie.\"\"\"\n    return {\n        \"httponly\": True,\n        \"secure\": secure,\n        \"samesite\": settings.SIMPLE_JWT.get(\"AUTH_COOKIE_SAMESITE\", \"Lax\"),\n    }\ndef _set_auth_cookies(response: Response, refresh: RefreshToken) -> None:",
+        "detail": "backend.api.views.Auth",
         "documentation": {}
     },
     {
@@ -1558,7 +1798,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(\"livros\", LivroViewSet, basename=\"livro\")\nrouter.register(\"emprestimos\", EmprestimoViewSet, basename=\"emprestimo\")\nrouter.register(\"associados\", AssociadoViewSet, basename=\"associado\")\nurlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    # Diagnóstico endpoints\n    path('diagnostico/', DiagnosticoView.as_view(), name='diagnostico'),",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(\"livros\",      LivroViewSet,      basename=\"livro\")\nrouter.register(\"emprestimos\", EmprestimoViewSet, basename=\"emprestimo\")\nrouter.register(\"associados\",  AssociadoViewSet,  basename=\"associado\")\nurlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # Autenticação (login, logout, refresh, me)\n    path(\"auth/\", include(\"api.urls_auth\")),\n    # Diagnóstico",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1567,7 +1807,7 @@
         "kind": 5,
         "importPath": "backend.api.urls",
         "description": "backend.api.urls",
-        "peekOfCode": "urlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # OUTROS\n    # Diagnóstico endpoints\n    path('diagnostico/', DiagnosticoView.as_view(), name='diagnostico'),\n    path('diagnostico/livros/', LivrosDiagnosticoView.as_view(), name='diagnostico-livros'),\n]",
+        "peekOfCode": "urlpatterns = [\n    # API REST (ViewSets)\n    path(\"\", include(router.urls)),\n    # Autenticação (login, logout, refresh, me)\n    path(\"auth/\", include(\"api.urls_auth\")),\n    # Diagnóstico\n    path(\"diagnostico/\",        DiagnosticoView.as_view(),       name=\"diagnostico\"),\n    path(\"diagnostico/livros/\", LivrosDiagnosticoView.as_view(), name=\"diagnostico-livros\"),\n]",
         "detail": "backend.api.urls",
         "documentation": {}
     },
@@ -1839,6 +2079,15 @@
         "description": "backend.manage",
         "peekOfCode": "def main():\n    os.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"core.settings\")\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise\n    execute_from_command_line(sys.argv)\nif __name__ == \"__main__\":\n    main()",
         "detail": "backend.manage",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.urls_auth",
+        "description": "backend.urls_auth",
+        "peekOfCode": "urlpatterns = [\n    path(\"login/\",   LoginView.as_view(),   name=\"auth-login\"),\n    path(\"logout/\",  LogoutView.as_view(),  name=\"auth-logout\"),\n    path(\"refresh/\", RefreshView.as_view(), name=\"auth-refresh\"),\n    path(\"me/\",      MeView.as_view(),      name=\"auth-me\"),\n]",
+        "detail": "backend.urls_auth",
         "documentation": {}
     }
 ]

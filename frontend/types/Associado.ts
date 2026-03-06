@@ -1,31 +1,33 @@
 /**
- *  `frontend/types/Associado.ts`
- * 
- *  Definição de um Associado
- * 
- *  @see `backend/api/models/Associado.py`
+ * `types/Associado.ts`
+ *
+ * Espelha o modelo Django `Associado` (OneToOne → User).
+ * Estrutura retornada pelo endpoint `/api/auth/me/` e `/api/associados/`.
  */
 
-/**
- * Representa um associado da sala de leitura.
- * Corresponde a `AssociadoSerializer`.
- */
+// User (Django auth.User)
+export interface DjangoUser {
+  id: number;
+  username: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  is_staff: boolean;        // acesso ao Django Admin
+  is_superuser: boolean;    // todas as permissões
+  is_active: boolean;
+}
+
+// Associado
 export interface Associado {
-    //  usuário relacionado ao associado
-    user: any;
+  id: number;
+  user: DjangoUser;
 
-    //  identificador único para um associado
-    id: number;
+  // Campos do modelo Associado
+  aniversario: string;      // ISO date: "YYYY-MM-DD"
+  telefone: string;
 
-    //  nome do associado
-    nome: string;
-
-    //  data de aniversário do associado
-    aniversario: string;
-
-    //  indica se o associado está ativo
-    esta_ativo: boolean;
-
-    //  indica se o associado é gerente
-    gerente: boolean;
-};
+  // Properties serializadas pelo backend
+  nome_completo: string;    // user.get_full_name()
+  email: string;            // user.email
+  esta_ativo: boolean;      // user.is_active
+}
